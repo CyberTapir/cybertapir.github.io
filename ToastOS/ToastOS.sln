@@ -1,25 +1,212 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastOS", "ToastOS.csproj", "{FD2DECF7-5E0F-4F25-A7C6-0B6AE05EE08A}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD2DECF7-5E0F-4F25-A7C6-0B6AE05EE08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD2DECF7-5E0F-4F25-A7C6-0B6AE05EE08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD2DECF7-5E0F-4F25-A7C6-0B6AE05EE08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD2DECF7-5E0F-4F25-A7C6-0B6AE05EE08A}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {328E18CB-5AE6-404E-9A91-5E4C5A920C66}
-	EndGlobalSection
-EndGlobal
+using Cosmos.HAL;
+using System;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using Sys = Cosmos.System;
+
+namespace ToastOS
+{
+    public class Kernel : Sys.Kernel
+    {
+        protected override void BeforeRun()
+        {
+            Console.Clear();
+            Console.WriteLine("ToastOS booted successfully.");
+        }
+
+        protected override void Run()
+        {
+            Console.Write("> ");
+            var input = Console.ReadLine().ToLower();
+            switch (input)
+            {
+                case "calc":
+                    calculatorCommand();
+                    break;
+                case "calc2":
+                    calculator2Command();
+                    break;
+                case "about":
+                    aboutCommand();
+                    break;
+                case "shutdown":
+                    shutdowncommand();
+                    break;
+                case "admin_logon":
+                    piefkeCommand();
+                    break;
+                case "cls":
+                    clearCommand();
+                    break;
+                default:
+                    badCommand();
+                    break;
+            }
+        }
+        private void badCommand()
+        {
+            Console.WriteLine("Bad command. try again");
+        }
+        private void clearCommand()
+        {
+            Console.Clear();
+            Console.WriteLine("ToastOS");
+        }
+        private void aboutCommand()
+        {
+            Console.WriteLine("ToastOS");
+            Console.WriteLine("Made with COSMOS User Kit");
+            Console.WriteLine("Developed by Oboe Industries");
+        }
+        private void calculatorCommand()
+        {
+            var result = 0;
+            Console.WriteLine();
+            Console.Write("Input Equation > ");
+            var input = Console.ReadLine();
+            var a = input.Split(' ');
+            var v0 = int.Parse(a[0]);
+            var v1 = int.Parse(a[2]);
+            if (a[1].Contains("+"))
+            {
+                result = v0 + v1;
+            }
+            else if (a[1].Contains("-"))
+            {
+                result = v0 - v1;
+            }
+            else if (a[1].Contains("*"))
+            {
+                result = v0 * v1;
+            }
+            else if (a[1].Contains("/"))
+            {
+                result = v0 / v1;
+            }
+            else
+            {
+                Console.WriteLine("Please check your formatting");
+            }
+            Console.WriteLine(result);
+        }
+        private void calculator2Command()
+        {
+            var result1 = 0;
+            var result2 = 0;
+            Console.WriteLine();
+            Console.Write("Input Equation > ");
+            var input = Console.ReadLine();
+            var a = input.Split(' ');
+            var x0 = int.Parse(a[0]);
+            var x1 = int.Parse(a[2]);
+            var x2 = int.Parse(a[4]);
+            if (a[1].Contains("+"))
+            {
+                if (a[3].Contains("*"))
+                {
+                    result1 = x1 * x2;
+                    result2 = x0 + result1;
+                }
+                else if (a[3].Contains("/"))
+                {
+                    result1 = x1 / x2;
+                    result2 = x0 + result1;
+                }
+                else if (a[3].Contains("+"))
+                {
+                    result1 = x0 + x1;
+                    result2 = result1 + x2;
+                }
+                else if (a[3].Contains("-"))
+                {
+                    result1 = x0 + x1;
+                    result2 = result1 - x2;
+                }
+            }
+            else if (a[1].Contains("-"))
+            {
+                if (a[3].Contains("*"))
+                {
+                    result1 = x1 * x2;
+                    result2 = x0 - result1;
+                }
+                else if (a[3].Contains("/"))
+                {
+                    result1 = x1 / x2;
+                    result2 = x0 - result1;
+                }
+                else if (a[3].Contains("+"))
+                {
+                    result1 = x0 + x1;
+                    result2 = result1 - x2;
+                }
+                else if (a[3].Contains("-"))
+                {
+                    result1 = x0 - x1;
+                    result2 = result1 - x2;
+                }
+            }
+            else if (a[1].Contains("*"))
+            {
+                result1 = x0 * x1;
+                if (a[3].Contains("*"))
+                {
+                    result2 = result1 * x2;
+                }
+                else if (a[3].Contains("/"))
+                {
+                    result2 = result1 / x2;
+                }
+                else if (a[3].Contains("+"))
+                {
+                    result2 = result1 + x2;
+                }
+                else if (a[3].Contains("-"))
+                {
+                    result2 = result1 - x2;
+                }
+            }
+            else if (a[1].Contains("/"))
+            {
+                result1 = x0 /  x1;
+                if (a[3].Contains("*"))
+                {
+                    result2 = result1 * x2;
+                }
+                else if (a[3].Contains("/"))
+                {
+                    result2 = result1 / x2;
+                }
+                else if (a[3].Contains("+"))
+                {
+                    result2 = result1 + x2;
+                }
+                else if (a[3].Contains("-"))
+                {
+                    result2 = result1 - x2;
+                }
+            }
+            Console.WriteLine(result2);
+        }
+        private void shutdowncommand()
+        {
+
+        }
+        private void piefkeCommand()
+        {
+            Console.Write("username: ");
+            var input = Console.ReadLine();
+            if (input.Contains("Callum Bennett"))
+            {
+                Console.Write("passkey: ");
+                var input2 = Console.ReadLine();
+                if (input2.Contains("Wom21ble!"))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Admin Access Unlocked");
+                }
+            }
+        }
+    }
+}
