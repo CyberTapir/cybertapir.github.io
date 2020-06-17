@@ -29,67 +29,67 @@ if (a[1].Contains("+"))
                 result1 = x0 + x1;
                 result2 = result1 - x2;
             }
-        else if (a[1].Contains("-"))
+else if (a[1].Contains("-"))
+    {
+        if (a[3].Contains("*"))
             {
-                if (a[3].Contains("*"))
-                {
-                    result1 = x1 * x2;
-                    result2 = x0 - result1;
-                }
-                else if (a[3].Contains("/"))
-                {
-                    result1 = x1 / x2;
-                    result2 = x0 - result1;
-                }
-                else if (a[3].Contains("+"))
-                {
-                    result1 = x0 + x1;
-                    result2 = result1 - x2;
-                }
-                else if (a[3].Contains("-"))
-                {
-                    result1 = x0 - x1;
-                    result2 = result1 - x2;
-                }
+                result1 = x1 * x2;
+                result2 = x0 - result1;
             }
-            else if (a[1].Contains("*"))
+        else if (a[3].Contains("/"))
             {
-                result1 = x0 * x1;
-                if (a[3].Contains("*"))
-                {
-                    result2 = result1 * x2;
-                }
-                else if (a[3].Contains("/"))
-                {
-                    result2 = result1 / x2;
-                }
-                else if (a[3].Contains("+"))
-                {
-                    result2 = result1 + x2;
-                }
-                else if (a[3].Contains("-"))
-                {
-                    result2 = result1 - x2;
-                }
+                result1 = x1 / x2;
+                result2 = x0 - result1;
             }
-            else if (a[1].Contains("/"))
+        else if (a[3].Contains("+"))
             {
-                result1 = x0 /  x1;
-                if (a[3].Contains("*"))
-                {
-                    result2 = result1 * x2;
-                }
-                else if (a[3].Contains("/"))
-                {
-                    result2 = result1 / x2;
-                }
-                else if (a[3].Contains("+"))
-                {
-                    result2 = result1 + x2;
-                }
+                result1 = x0 + x1;
+                result2 = result1 - x2;
+            }
+        else if (a[3].Contains("-"))
+            {
+                result1 = x0 - x1;
+                result2 = result1 - x2;
+            }
+        }
+else if (a[1].Contains("*"))
+    {
+        result1 = x0 * x1;
+        if (a[3].Contains("*"))
+            {
+                result2 = result1 * x2;
+            }
+            else if (a[3].Contains("/"))
+            {
+                result2 = result1 / x2;
+            }
+            else if (a[3].Contains("+"))
+            {
+                result2 = result1 + x2;
+            }
                 else if (a[3].Contains("-"))
                 {
                     result2 = result1 - x2;
                 }
             }
-            Console.WriteLine(result2);
+else if (a[1].Contains("/"))
+    {
+        result1 = x0 /  x1;
+        if (a[3].Contains("*"))
+            {
+                result2 = result1 * x2;
+            }
+        else if (a[3].Contains("/"))
+            {
+                result2 = result1 / x2;
+            }
+            else if (a[3].Contains("+"))
+            {
+                result2 = result1 + x2;
+            }
+            else if (a[3].Contains("-"))
+            {
+                result2 = result1 - x2;
+            }
+        }
+Console.WriteLine(result2);
