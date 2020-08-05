@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Sys = Cosmos.System;
-
 namespace ToastOS
 {
     public class Kernel : Sys.Kernel
@@ -12,15 +11,16 @@ namespace ToastOS
         protected override void BeforeRun()
         {
             Console.Clear();
-            Console.WriteLine("ToastOS booted successfully.");
+            Console.WriteLine("ToastOS 0.3 Beta booted successfully.");
         }
-
+        bool admin = false;
         protected override void Run()
         {
             Console.Write("> ");
             var input = Console.ReadLine().ToLower();
             switch (input)
             {
+                //All the possible commands to use once ToastOS Starts
                 case "calc":
                     calculatorCommand();
                     break;
@@ -30,11 +30,11 @@ namespace ToastOS
                 case "about":
                     aboutCommand();
                     break;
-                case "shutdown":
-                    shutdowncommand();
-                    break;
                 case "admin_logon":
                     piefkeCommand();
+                    break;
+                case "battleship":
+                    battleship();
                     break;
                 case "cls":
                     clearCommand();
@@ -44,21 +44,32 @@ namespace ToastOS
                     break;
             }
         }
+        //Saying if the command isn't recognised, then say Bad Command.
         private void badCommand()
         {
             Console.WriteLine("Bad command. try again");
         }
+        //Clearing the space if the command is run, and printing ToastOS
         private void clearCommand()
         {
             Console.Clear();
-            Console.WriteLine("ToastOS");
+            if (admin == true)
+            {
+                Console.WriteLine("ToastOS Admin");
+            }
+            else
+            {
+                Console.WriteLine("ToastOS 0.3 Beta");
+            }
         }
+        //Telling the user about the OS
         private void aboutCommand()
         {
             Console.WriteLine("ToastOS");
             Console.WriteLine("Made with COSMOS User Kit");
             Console.WriteLine("Developed by Oboe Industries");
         }
+        //Calculator command 1, can calculate +, -, *, and /
         private void calculatorCommand()
         {
             var result = 0;
@@ -90,6 +101,7 @@ namespace ToastOS
             }
             Console.WriteLine(result);
         }
+        //Second calculator command, can run 3 numbers with +, -, *, and /
         private void calculator2Command()
         {
             var result1 = 0;
@@ -169,7 +181,7 @@ namespace ToastOS
             }
             else if (a[1].Contains("/"))
             {
-                result1 = x0 /  x1;
+                result1 = x0 / x1;
                 if (a[3].Contains("*"))
                 {
                     result2 = result1 * x2;
@@ -189,14 +201,12 @@ namespace ToastOS
             }
             Console.WriteLine(result2);
         }
-        private void shutdowncommand()
-        {
-
-        }
+        //Command to initiate an admin login.
         private void piefkeCommand()
         {
             Console.Write("username: ");
             var input = Console.ReadLine();
+            //add a boolean variable to say "Admin Access Unlocked"
             if (input.Contains("Callum Bennett"))
             {
                 Console.Write("passkey: ");
@@ -208,8 +218,48 @@ namespace ToastOS
                 }
             }
         }
-        //Battleship//
-        //connect 4//
-        //tic tac toe//
+        //Battleship game, In development. It should work... I can't test it because there is an issue with il2cpu cosmos.core.multiboot
+        private void battleship()
+        {
+            Console.WriteLine();
+            Console.WriteLine("New BattleShip game");
+            int location1 = 3;
+            int location2 = 4;
+            int location3 = 5;
+            var hits = 0;
+            var guesses = 0;
+            var isSunk = false;
+            while (isSunk == false)
+            {
+                Console.Write("Enter your guess (A number between 0 and 6)");
+                int guess = Console.Read();
+                if (guess < 0 || guess > 6)
+                {
+                    Console.WriteLine("Bad number. try again");
+                }
+                else
+                {
+                    guesses = guesses + 1;
+                    if (guess == location1 || guess == location2 || guess == location3)
+                    {
+                        Console.WriteLine("Hit!");
+                        hits = hits + 1;
+                        if (hits == 3)
+                        {
+                            isSunk = true;
+                            Console.WriteLine("You sunk the battleship!");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Miss");
+                    }
+                }
+            }
+            var stats = "You Took " + guesses + "guesses to sink the battleship, which means your accuracy was " + (3 / guesses);
+            Console.WriteLine(stats);
+        }
+        //Connect 4//
+        //Tic Tac Toe//
     }
 }
