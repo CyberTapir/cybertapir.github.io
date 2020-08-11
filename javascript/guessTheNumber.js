@@ -1,6 +1,7 @@
 function playGame() {
     var guesses = 0;
     var playerInput;
+    //At this point for testing, the answer will stay 5
     var answer = 5;
     guesses = 0;
     playerInput = prompt("Enter a number between 1 and 10")
