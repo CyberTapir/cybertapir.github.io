@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <style>
+          @font-face {
+  	      font-family: 'PWSmallIcons';
+ 	        src: url('pw-small-icons.ttf') format('truetype');
+  	      font-weight: normal;
+  	      font-style: normal;
+            }
+
+            body {
+              text-align: center;
+              font-family: sans-serif;
+            }
+
+            div#game-screen table#game-grid {
+              border-collapse: collapse;
+              margin: 0 auto;
+              font-family: "PWSmallIcons";
+              font-size: 32px;
+              text-align: center;
+              color: #545454;
+            }
+
+            div#game-screen table#game-grid tr td {
+              width: 90px;
+              height: 90px;
+              border: 2px solid black;
+            }
+
+            div#game-screen table#game-grid tr td.match {
+              color: #308F00;	
+            }
+
+            div#game-screen button.restart-button {
+              margin-top: 20px;
+              height: 50px;
+              width: 150px;
+              font-size: 16px;
+            }
+
+            div#game-screen div#score {
+              margin-top: 20px;
+              font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game-screen">
+		<h1>Visual Battleship</h1>
+		<table id="game-grid">
+			<tbody>
+				<tr>
+		    		<td id="cell0" onclick="cellClicked(0)"></td>
+					<td id="cell1" onclick="cellClicked(1)"></td>
+					<td id="cell2" onclick="cellClicked(2)"></td>
+                	<td id="cell3" onclick="cellClicked(3)"></td>
+					<td id="cell4" onclick="cellClicked(4)"></td>
+					<td id="cell5" onclick="cellClicked(5)"></td>
+					<td id="cell6" onclick="cellClicked(6)"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div>Hits: <span id="hits">0</span></div>
+	    <div>Misses: <span id="misses">0</span></div>
+		<button class="restart-button" type="button" onclick="setupGame()">Restart Game</button
+		</div>	
+        <script src="battleship.js"></script>
+    </body>
+</html>
