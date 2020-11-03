@@ -1,4 +1,5 @@
 import random
+import time
 
 board = [["1","2","3"],
          ["4","5","6"],
@@ -96,6 +97,7 @@ while running:
                         #If there has been a win since that piece was placed, the player has won, so tell them that
                         if checkForWin():
                             print("You won! Well Done!")
+                            time.sleep(0.5)
                             displayBoard()
                             gameWon = True
                         
@@ -193,6 +195,7 @@ while running:
                             #If there has been a win after that piece was placed, the computer has won, so say that
                             if checkForWin():
                                 print("Computer won! Better luck next time!")
+                                time.sleep(0.5)
                                 displayBoard()
                                 gameWon = True
 
@@ -212,4 +215,5 @@ while running:
                 if not vacantSquare and not gameWon:
                     gameWon = True
                     print("It was a draw!")
+                    time.sleep(0.5)
                     displayBoard()
