@@ -13,12 +13,10 @@ def initialiseBoard():
 
 def getPos(y,x):
     global board
-
     return board[y][x]
 
 def setPos(y,x,value):
     global board
-
     board[y][x]= value
 
 #Displays the board
@@ -60,7 +58,7 @@ while running:
 
         #Clear the board
         initialiseBoard()
-        print("You are going to play as O, so the computer will move first")
+        print("You are going to play as Noughts, so the computer will move first")
 
         #Place the computer's first piece
         if wouldYouLikeToPlaylevel123or4.startswith("1"):
@@ -113,7 +111,6 @@ while running:
                         else:
                             y = 0
                             computerplayHappened = False
-                             
                             nextPosX = -1
                             nextPosY = -1
 
@@ -176,6 +173,7 @@ while running:
                                         print("Moved to block in Column")
                                         setPos(SpaceRowP,x,"X")
                                         computerplayHappened = True
+
                             #If none of the above are true, the AI will move randomly
                             if computerplayHappened == False:
                                  print("AI moved randomly")
