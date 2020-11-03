@@ -100,6 +100,7 @@ while running:
                             time.sleep(0.5)
                             displayBoard()
                             gameWon = True
+                            running  = False
                         
                         #Otherwise, we need to see what the computer will do
                         if wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2"):
@@ -198,6 +199,7 @@ while running:
                                 time.sleep(0.5)
                                 displayBoard()
                                 gameWon = True
+                                running = False
 
             #If nothing happened this turn, it means the player chose an invalid space, so tell them that
             if not personplayHappened:
@@ -217,3 +219,4 @@ while running:
                     print("It was a draw!")
                     time.sleep(0.5)
                     displayBoard()
+                    running = False
