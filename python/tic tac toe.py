@@ -108,91 +108,92 @@ while running:
                             nextPosX = random.randint(0,2)
                             nextPosY = random.randint(0,2)
                          else:
-                             y = 0
-                             computerplayHappened = False
+                            y = 0
+                            computerplayHappened = False
                              
-                             nextPosX = -1
-                             nextPosY = -1
+                            nextPosX = -1
+                            nextPosY = -1
 
-                             for y in range (0,3):  #Finding out if it has two "X"s in a row to then take the last square if there isn't already a nought
-                                 CountX = 0
-                                 SpaceColumn = 5
-                                 for X in range (0,3):
-                                     if getPos(y,X) == "X":
-                                         CountX=CountX + 1
-                                     else:
-                                         if getPos(y,X) != 'O':
-                                            SpaceColumn = X
-                                 if CountX == 2 and SpaceColumn < 3:
-                                     setPos(y,SpaceColumn,"X")
-                                     computerplayHappened = True
-                             if computerplayHappened == False:
-                                 for X in range (0,3):  #Finding out if it has two "X"s in a column to then take the last square if there isn't already a nought
-                                     CountY = 0
-                                     SpaceRow = 5
-                                     for y in range (0,3):
-                                         if getPos(y,X) == "X":
-                                             CountY = CountY + 1
-                                         else:
-                                             if getPos(y,X) != 'O':
-                                                SpaceRow = y
-                                     if CountY == 2 and SpaceRow < 3:
-                                         setPos(SpaceRow,X,"X")
-                                         computerplayHappened = True
+                            for y in range (0,3):  #Finding out if it has two "X"s in a row to then take the last square if there isn't already a nought
+                                CountX = 0
+                                SpaceColumn = 5
+                                for X in range (0,3):
+                                    if getPos(y,X) == "X":
+                                        CountX=CountX + 1
+                                    else:
+                                        if getPos(y,X) != 'O':
+                                        SpaceColumn = X
+                                if CountX == 2 and SpaceColumn < 3:
+                                    setPos(y,SpaceColumn,"X")
+                                    computerplayHappened = True
+                                if computerplayHappened == False:
+                                    for X in range (0,3):  #Finding out if it has two "X"s in a column to then take the last square if there isn't already a nought
+                                        CountY = 0
+                                        SpaceRow = 5
+                                        for y in range (0,3):
+                                            if getPos(y,X) == "X":
+                                                CountY = CountY + 1
+                                            else:
+                                                if getPos(y,X) != 'O':
+                                                    SpaceRow = y
+                                        if CountY == 2 and SpaceRow < 3:
+                                            setPos(SpaceRow,X,"X")
+                                            computerplayHappened = True
     
-                             if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
-                                 for y in range (0,3):  #Blocking the Nought from collecting 3 in a row
-                                     CountNoughtRow = 0
-                                     SpaceColumnP = 5
-                                     for X in range (0,3):
-                                         if getPos(y,X) == "X":
-                                             CountNoughtRow = CountNoughtRow + 1
-                                         else:
-                                             if getPos(y,X) != 'O':
-                                                 SpaceColumnP = X
-                                     print(CountNoughtRow)
-                                     print(SpaceColumnP)
-                                     if CountNoughtRow == 2 and SpaceColumnP < 3:
-                                         print("Moved to block in row")
-                                         setPos(y,SpaceColumnP,"X")
-                                         computerplayHappened = True
+                            if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
+                                for y in range (0,3):  #Blocking the Nought from collecting 3 in a row
+                                    CountNoughtRow = 0
+                                    SpaceColumnP = 5
+                                    for X in range (0,3):
+                                        if getPos(y,X) == "X":
+                                            CountNoughtRow = CountNoughtRow + 1
+                                        else:
+                                            if getPos(y,X) != 'O':
+                                                SpaceColumnP = X
+                                    print(CountNoughtRow)
+                                    print(SpaceColumnP)
+                                    if CountNoughtRow == 2 and SpaceColumnP < 3:
+                                        print("Moved to block in row")
+                                        setPos(y,SpaceColumnP,"X")
+                                        computerplayHappened = True
                                  
-                             if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
-                                 for x in range (0,3):  #Blocking the Nought from collecting 3 in a column. Still a work in progress...
-                                     CountNoughtColumn = 0
-                                     SpaceRowP = 5
-                                     for y in range (0,3):
-                                         if getPos(y,x) == "O":
-                                             CountNoughtColumn = CountNoughtColumn + 1
-                                         else:
-                                             if getPos(y,x) != 'X':
-                                                 SpaceRowP = y
-                                     print(CountNoughtRow)
-                                     print(SpaceRowP)
-                                     if CountNoughtColumn == 2 and SpaceRowP < 3:
-                                         print("Moved to block in Column")
-                                         setPos(SpaceRowP,x,"X")
-                                         computerplayHappened = True
+                            if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
+                                for x in range (0,3):  #Blocking the Nought from collecting 3 in a column. Still a work in progress...
+                                    CountNoughtColumn = 0
+                                    SpaceRowP = 5
+                                    for y in range (0,3):
+                                        if getPos(y,x) == "O":
+                                            CountNoughtColumn = CountNoughtColumn + 1
+                                        else:
+                                            if getPos(y,x) != 'X':
+                                                SpaceRowP = y
+                                    print(CountNoughtRow)
+                                    print(SpaceRowP)
+                                    if CountNoughtColumn == 2 and SpaceRowP < 3:
+                                        print("Moved to block in Column")
+                                        setPos(SpaceRowP,x,"X")
+                                        computerplayHappened = True
 
-                             if computerplayHappened == False:
+                            if computerplayHappened == False:
                                  print("AI moved randomly")
                                  nextPosX = random.randint(0,2)
                                  nextPosY = random.randint(0,2)
+                                 setPos(nextPosX,nextPosY, "X")
  
-                             #Generate new random numbers until the computer has selected an empty square
-                                 while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
-                                     nextPosX = random.randint(0,2)
-                                     nextPosY = random.randint(0,2)
+                            #Generate new random numbers until the computer has selected an empty square
+                                while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
+                                    nextPosX = random.randint(0,2)
+                                    nextPosY = random.randint(0,2)
 
-                             #Place an X in the square that the computer has chosen
-                             if nextPosX == nextPosY and nextPosX == -1:
+                            #Place an X in the square that the computer has chosen
+                            if nextPosX == nextPosY and nextPosX == -1:
                                 setPos(nextPosY,nextPosX,"X")
  
-                             #If there has been a win after that piece was placed, the computer has won, so say that
-                             if checkForWin():
-                                 print("Computer won! Better luck next time!")
-                                 displayBoard()
-                                 gameWon = True
+                            #If there has been a win after that piece was placed, the computer has won, so say that
+                            if checkForWin():
+                                print("Computer won! Better luck next time!")
+                                displayBoard()
+                                gameWon = True
 
             #If nothing happened this turn, it means the player chose an invalid space, so tell them that
             if not personplayHappened:
