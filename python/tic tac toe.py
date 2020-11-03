@@ -21,9 +21,7 @@ def setPos(y,x,value):
 
     board[y][x]= value
 
-# Only look at the code below here if you are interested!
-# If you just want to get the game working, you only have to write the code above
-
+#Displays the board
 def displayBoard():
     global board
 
@@ -110,6 +108,7 @@ while running:
                             nextPosY = random.randint(0,2)
                             setPos(nextPosX, nextPosY, "X")
                             computerplayHappened = True
+                        #Computer play for the harder levels
                         else:
                             y = 0
                             computerplayHappened = False
@@ -176,7 +175,7 @@ while running:
                                         print("Moved to block in Column")
                                         setPos(SpaceRowP,x,"X")
                                         computerplayHappened = True
-
+                            #If none of the above are true, the AI will move randomly
                             if computerplayHappened == False:
                                  print("AI moved randomly")
                                  nextPosX = random.randint(0,2)
