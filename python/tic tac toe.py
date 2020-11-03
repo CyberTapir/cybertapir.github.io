@@ -89,25 +89,28 @@ while running:
             for y in range(0,3):
                 for x in range(0,3):
 
-                     #If this coordinate is the number that the player entered (and they didn't try to cheat by using "X" or "O")
+                    #If this coordinate is the number that the player entered (and they didn't try to cheat by using "X" or "O")
                     if getPos(y,x) == playerChoice and (playerChoice != "X" and playerChoice != "O"):
 
-                         #Confirm that something has happened this turn, and set the board position to an O
-                         personplayHappened = True
-                         setPos(y,x,"O")
+                        #Confirm that something has happened this turn, and set the board position to an O
+                        personplayHappened = True
+                        setPos(y,x,"O")
 
 
-                         #If there has been a win since that piece was placed, the player has won, so tell them that
-                         if checkForWin():
-                             print("You won! Well Done!")
-                             displayBoard()
-                             gameWon = True
+                        #If there has been a win since that piece was placed, the player has won, so tell them that
+                        if checkForWin():
+                            print("You won! Well Done!")
+                            displayBoard()
+                            gameWon = True
                         
-                         #Otherwise, we need to see what the computer will do
-                         if wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2"):
+                        #Otherwise, we need to see what the computer will do
+                        if wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2"):
+                            computerplayHappened = False
                             nextPosX = random.randint(0,2)
                             nextPosY = random.randint(0,2)
-                         else:
+                            setPos(nextPosX, nextPosY, "X")
+                            computerplayHappened = True
+                        else:
                             y = 0
                             computerplayHappened = False
                              
@@ -122,7 +125,7 @@ while running:
                                         CountX=CountX + 1
                                     else:
                                         if getPos(y,X) != 'O':
-                                        SpaceColumn = X
+                                            SpaceColumn = X
                                 if CountX == 2 and SpaceColumn < 3:
                                     setPos(y,SpaceColumn,"X")
                                     computerplayHappened = True
@@ -181,9 +184,9 @@ while running:
                                  setPos(nextPosX,nextPosY, "X")
  
                             #Generate new random numbers until the computer has selected an empty square
-                                while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
-                                    nextPosX = random.randint(0,2)
-                                    nextPosY = random.randint(0,2)
+                            while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
+                                nextPosX = random.randint(0,2)
+                                nextPosY = random.randint(0,2)
 
                             #Place an X in the square that the computer has chosen
                             if nextPosX == nextPosY and nextPosX == -1:
