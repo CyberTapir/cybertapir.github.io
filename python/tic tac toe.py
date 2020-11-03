@@ -14,7 +14,6 @@ def getPos(y,x):
     global board
 
     return board[y][x]
-    
 
 def setPos(y,x,value):
     global board
@@ -51,7 +50,6 @@ def checkForWin():
     #Finally check diagonals
     hasWon = hasWon or (getPos(0,0) == getPos(1,1) and getPos(1,1) == getPos(2,2)) or (getPos(0,2) == getPos(1,1) and getPos(1,1) == getPos(2,0))
     return hasWon
-
 
 running = True
 while running:
@@ -190,6 +188,7 @@ while running:
                             #Place an X in the square that the computer has chosen
                             if nextPosX == nextPosY and nextPosX == -1:
                                 setPos(nextPosY,nextPosX,"X")
+                                displayBoard()
  
                             #If there has been a win after that piece was placed, the computer has won, so say that
                             if checkForWin():
