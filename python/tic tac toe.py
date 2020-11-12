@@ -1,5 +1,6 @@
 import random
 import time
+import readline
 
 board = [["1","2","3"],
          ["4","5","6"],
@@ -97,8 +98,13 @@ while running:
                             print("You won! Well Done!")
                             time.sleep(0.5)
                             displayBoard()
-                            gameWon = True
-                            running  = False
+                            playAgain = input("Would you like to play again?")
+                            if playAgain == "Yes":
+                                gameWon = False
+                                running = True
+                            if playAgain == "No":
+                                gameWon = True
+                                running  = False
                         
                         #Otherwise, we need to see what the computer will do
                         if wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2"):
@@ -196,8 +202,13 @@ while running:
                                 print("Computer won! Better luck next time!")
                                 time.sleep(0.5)
                                 displayBoard()
-                                gameWon = True
-                                running = False
+                                playAgain = input("Would you like to play again?")
+                                if playAgain == "Yes":
+                                    gameWon = False
+                                    running = True
+                                if playAgain == "No":
+                                    gameWon = True
+                                    running  = False
 
             #If nothing happened this turn, it means the player chose an invalid space, so tell them that
             if not personplayHappened:
@@ -217,4 +228,10 @@ while running:
                     print("It was a draw!")
                     time.sleep(0.5)
                     displayBoard()
-                    running = False
+                    playAgain = input("Would you like to play again?")
+                    if playAgain == "Yes":
+                        gameWon = False
+                        running = True
+                    if playAgain == "No":
+                        gameWon = True
+                        running  = False
