@@ -10,6 +10,7 @@ namespace ToastOS
     {
         protected override void BeforeRun()
         {
+            //Clears the console and writes the following
             Console.Clear();
             Console.WriteLine("ToastOS 0.3 Beta booted successfully.");
         }
@@ -47,11 +48,13 @@ namespace ToastOS
                     break;
             }
         }
+
         //Saying if the command isn't recognised, then say Bad Command.
         private void badCommand()
         {
             Console.WriteLine("Bad command. try again");
         }
+
         //Clearing the space if the command is run, and printing ToastOS
         private void clearCommand()
         {
@@ -65,13 +68,15 @@ namespace ToastOS
                 Console.WriteLine("ToastOS 0.3 Beta");
             }
         }
+
         //Telling the user about the OS
         private void aboutCommand()
         {
             Console.WriteLine("ToastOS");
             Console.WriteLine("Made with COSMOS User Kit");
-            Console.WriteLine("Developed by Oboe Industries");
+            Console.WriteLine("Developed by Big X inc.");
         }
+
         //Calculator command 1, can calculate +, -, *, and /
         private void calculatorCommand()
         {
@@ -104,6 +109,7 @@ namespace ToastOS
             }
             Console.WriteLine(result);
         }
+
         //Second calculator command, can run 3 numbers with +, -, *, and /
         private void calculator2Command()
         {
@@ -204,6 +210,7 @@ namespace ToastOS
             }
             Console.WriteLine(result2);
         }
+
         //Command to initiate an admin login.
         private void piefkeCommand()
         {
@@ -221,7 +228,8 @@ namespace ToastOS
                 }
             }
         }
-        //Battleship game, In development. It should work... I can't test it because there is an issue with il2cpu cosmos.core.multiboot
+
+        //Battleship
         private void battleship()
         {
             Console.WriteLine();
@@ -262,8 +270,12 @@ namespace ToastOS
             var stats = "You Took " + guesses + "guesses to sink the battleship, which means your accuracy was " + (3 / guesses);
             Console.WriteLine(stats);
         }
+
         //Connect 4//
+
+        //Tic Tac Toe
         private void tictactoe() {
+            //a C# adaptation of my Python one
             var board = [["1","2","3"],["4","5","6"],["7","8","9"]];
             function initialiseBoard() {
                 var board = [["1","2","3"],["4","5","6"],["7","8","9"]];
@@ -276,8 +288,39 @@ namespace ToastOS
             }
             function displayBoard() {
                 while (y <= 3) {
-                    
+                    Console.WriteLine(board[y]);
                 }
+            }
+            function checkForWin() {
+                var hasWon = false;
+                //Checking for 3 across
+                while (y <= 3) {
+                    var same = true;
+                    while (x <= 3) {
+                        if (x > 0) {
+                            same = same and getPos(y,(x-1)) == getPos(y,x);
+                        }
+                    }
+                    if (same) {
+                        hasWon = true;
+                    }
+                }
+                //Checking for 3 down
+                while (x <= 3) {
+                    same = true;
+                    if (y <= 3) {
+                        if (y > 0) {
+                            same = same and getPos((y-1),x) == getPos(y,x);
+                        }
+                    }
+                    if (same) {
+                        hasWon = true;
+                    }
+                }
+            }
+            var running = true;
+            while (running == true) {
+                var gameWon = false;
             }
         }
     }
