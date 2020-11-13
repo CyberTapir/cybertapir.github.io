@@ -36,6 +36,9 @@ namespace ToastOS
                 case "battleship":
                     battleship();
                     break;
+                case "tictactoe":
+                    tictactoe();
+                    break;
                 case "cls":
                     clearCommand();
                     break;
@@ -260,6 +263,22 @@ namespace ToastOS
             Console.WriteLine(stats);
         }
         //Connect 4//
-        //Tic Tac Toe//
+        private void tictactoe() {
+            var board = [["1","2","3"],["4","5","6"],["7","8","9"]];
+            function initialiseBoard() {
+                var board = [["1","2","3"],["4","5","6"],["7","8","9"]];
+            }
+            function getPos(y,x) {
+                return board[y][x];
+            }
+            function setPos() {
+                board[y][x] = value;
+            }
+            function displayBoard() {
+                while (y <= 3) {
+                    
+                }
+            }
+        }
     }
 }
