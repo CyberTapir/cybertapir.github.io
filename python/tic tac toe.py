@@ -91,8 +91,7 @@ while running:
                         #Confirm that something has happened this turn, and set the board position to an O
                         personplayHappened = True
                         setPos(y,x,"O")
-
-
+                        
                         #If there has been a win since that piece was placed, the player has won, so tell them that
                         if checkForWin():
                             print("You won! Well Done!")

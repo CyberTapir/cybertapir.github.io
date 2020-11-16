@@ -321,6 +321,33 @@ namespace ToastOS
             var running = true;
             while (running == true) {
                 var gameWon = false;
+
+                initialiseBoard();
+                Console.WriteLine("You are going to play as Noughts, so the computer will move first")
+
+                setPos(/*Set random number y*/, /*Set random number x*/)
+
+                while (gameWon == false) {
+                    
+                    displayBoard();
+                    
+                    Console.Write("Where would you like to place a piece? ")
+                    playerChoice = Console.ReadLine();
+                    personPlayHappened = false;
+                    while (y <= 3) {
+                        while (x <= 3) {
+                            if (getPos[y,x] == playerChoice and (playerChoice != "X" and playerChoice != "0")) {
+                                personPlayHappened = true;
+                                setPos(y,x,"0");
+
+                                if (checkForWin()) {
+                                    Console.WriteLine("You won. Well done!");
+                                    displayBoard();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
