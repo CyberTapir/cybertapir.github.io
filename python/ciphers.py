@@ -11,4 +11,9 @@ def letterIndex(letter):
 	print("letter: "+ letter + " is not in the alphabet")
 
 codeCharacters = list(code)
-print(codeCharacters)
+
+outputString = ""
+
+for letter in codeCharacters:
+    shiftedPosition = letterIndex(letter) + 1
+    outputString += alphabetArray[shiftedPosition]
