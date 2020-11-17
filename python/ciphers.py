@@ -1,5 +1,5 @@
 code = "vkihecmedyyhuseudeciqecpubf"
-code.lower()
+code = code.lower()
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 alphabetArray = list(alphabet)
@@ -12,12 +12,14 @@ def letterIndex(letter):
 
 codeCharacters = list(code)
 
-for something in range(24):
+for something in range(26):
 
 	outputString = ""
 
 	for letter in codeCharacters:
-	    shiftedPosition = letterIndex(letter) + 1
+	    shiftedPosition = letterIndex(letter) + something
+        if shiftedPosition >= 26:
+            shiftedPosition = shiftedPosition - 26
 	    outputString += alphabetArray[shiftedPosition]
 
 	print(outputString)
