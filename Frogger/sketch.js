@@ -77,9 +77,9 @@ function setup(){
 
 function endGame(won){
     if (won == 1){
-        alert("You Win! Your final score was " + points*10 + " points.");
+        alert("You Win! Your final score was " + points + " points.");
     } else {
-        alert("Game Over! Your final score was " + points/1000 + " points.")
+        alert("Game Over! Your final score was 0 points.")
     }
     location.reload();
 }
@@ -145,7 +145,7 @@ function draw(){
 function keyPressed() {
     if(keyCode === UP_ARROW){
         frog.move(0, -1);
-        console.log(frog.x +" "+ frog.y);
+        console.log(frog.x +" - "+ frog.y);
         console.log(points)
         if (frog.y == 0) {
             frog.update();
