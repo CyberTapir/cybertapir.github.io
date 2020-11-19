@@ -5,6 +5,7 @@ let grid = 50;
 let lives = 10;
 let points = 100;
 let name;
+let midPoints = false;
 document.getElementById("lives").innerHTML = "5";
 name = prompt("Enter your name to begin");
 
@@ -152,11 +153,17 @@ function keyPressed() {
             frog.show();
             points = points + 500;
             endGame(1);
-        } 
+        }
         if (frog.y == 250) {
-            frog.update();
-            frog.show();
-            points = points + 250;
+            if (midPoints == false) {
+                frog.update();
+                frog.show();
+                points = points + 250;
+                midPoints = true;
+            } else {
+                frog.update();
+                frog.show();
+            }
         }
     } else if(keyCode === DOWN_ARROW){
         frog.move(0, 1);
