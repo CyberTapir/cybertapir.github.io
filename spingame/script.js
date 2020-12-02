@@ -89,11 +89,9 @@ function alertPrize(indicatedSegment)
     if (indicatedSegment.text == 'GIVE AN INGREDIENT') {
         alert('You have now lost an ingridient to your opponent');
         playeritems.shift(1);
-        displayLists();
     } else if (indicatedSegment.text == 'LOSE AN INGREDIENT') {
         alert('Oh no, you have lost an ingridient');
         playeritems.shift(1);
-        displayLists();
     } else {
         alert("You Received " + indicatedSegment.text);
     }
@@ -104,7 +102,6 @@ function alertPrize(indicatedSegment)
     }
 
     
-    console.log(playerItems)
     resetWheel();
     displayLists();
 }
