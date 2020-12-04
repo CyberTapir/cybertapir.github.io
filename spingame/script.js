@@ -209,7 +209,7 @@ function displayLists()
   {
     alert("Player Wins");
   } 
-  else
+  else if(aiItems.length > 6)
   {
     alert("House Wins");
   }  
