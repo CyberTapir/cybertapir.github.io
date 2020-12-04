@@ -2,6 +2,7 @@ var playerItems = [];
 var aiItems = [];
 
 var playerRequirements = [];
+var aiRequirements = [];
 
 var ingredients = ["Eggs", "Lettuce", "Milk", "Flour", "Sugar", "Wheat", "Rice", "Bread"]
 
@@ -77,6 +78,11 @@ function startGame()
     for (i = 0; i < 6; i++) 
     { 
         playerRequirements.push(ingredients[Math.floor(Math.random() * ingredients.length)])
+    }
+  
+  for (i = 0; i < 6; i++) 
+    { 
+        aiRequirements.push(ingredients[Math.floor(Math.random() * ingredients.length)])
     }
 
     console.log(playerRequirements)
@@ -181,6 +187,22 @@ function displayLists()
     for (i = 0; i < playerItems.length; i++) 
     { 
         playerItemsList.innerHTML += "<li>" + playerItems[i] + "</li>"
+    }
+  
+  var aiList = document.getElementById("aiList");
+    aiList.innerHTML = "";
+
+    var aiItemsList = document.getElementById("aiItems");
+    aiItemsList.innerHTML = "";
+
+    for (i = 0; i < aiRequirements.length; i++) 
+    { 
+        aiList.innerHTML += "<li>" + aiRequirements[i] + "</li>"
+    }
+
+    for (i = 0; i < aiItems.length; i++) 
+    { 
+        aiItemsList.innerHTML += "<li>" + aiItems[i] + "</li>"
     }
 }
 
