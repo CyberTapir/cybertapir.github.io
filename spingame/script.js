@@ -6,6 +6,7 @@ var playerRequirements = [];
 var ingredients = ["Eggs", "Lettuce", "Milk", "Flour", "Sugar", "Wheat", "Rice", "Bread"]
 
 var wheelSpinning = false;
+var playerTurn = true;
 
 
 let theWheel = new Winwheel({
@@ -37,7 +38,7 @@ let theWheel = new Winwheel({
                    {'fillStyle' : '#000000', 'text' : 'LOSE AN INGREDIENT', 'textFontSize' : 11, 'textFillStyle' : '#ffffff'},//lose an ingridiant
                    {'fillStyle' : '#ffffff', 'text' : 'GIVE AN INGREDIENT', 'textFontSize' : 11} //Give the other player one of your ingridents
                 ],
-                'animation' :           // Specify the animation to use.
+                'animation' : // Specify the animation to use.
                 {
                     'type'     : 'spinToStop',
                     'duration' : 10,
@@ -85,31 +86,62 @@ function startGame()
 // Called when the animation has finished.
 function alertPrize(indicatedSegment)
 {
-    // Display different message if win/lose/backrupt.
-    if (indicatedSegment.text == 'GIVE AN INGREDIENT') {
-        alert('You have now lost an ingridient to your opponent');
-        playeritems.shift(1);
-    } else if (indicatedSegment.text == 'LOSE AN INGREDIENT') {
-        alert('Oh no, you have lost an ingridient');
-        playeritems.shift(1);
-    } else {
-        alert("You Received " + indicatedSegment.text);
-    }
-
-    if(playerRequirements.includes(indicatedSegment.text))
+    if(playerTurn)
     {
-        playerItems.push(indicatedSegment.text)
-    }
+         // Display different message if win/lose/backrupt.
+        if (indicatedSegment.text == 'GIVE AN INGREDIENT') 
+        {
+          alert('You have now lost an ingridient to your opponent');
+          playerItems.shift(1);
+      } 
+        else if (indicatedSegment.text == 'LOSE AN INGREDIENT') {
+        alert('Oh no, you have lost an ingridient');
+        playerItems.shift(1);
+      } else {
+          alert("You Received " + indicatedSegment.text);
+      }
 
+      if(playerRequirements.includes(indicatedSegment.text))
+      {
+          playerItems.push(indicatedSegment.text)
+      }
+    }
+    else
+    {
+       // Display different message if win/lose/backrupt.
+        if (indicatedSegment.text == 'GIVE AN INGREDIENT') 
+        {
+          alert('The House Lost An Ingredient');
+          playerItems.shift(1);
+      } 
+        else if (indicatedSegment.text == 'LOSE AN INGREDIENT') {
+        alert('The house lost an ingridient');
+        playerItems.shift(1);
+      } else {
+          alert("The House Received " + indicatedSegment.text);
+      }
+
+      if(playerRequirements.includes(indicatedSegment.text))
+      {
+          playerItems.push(indicatedSegment.text)
+      }
+    } 
+
+    playerTurn = !playerTurn;
     
     resetWheel();
     displayLists();
+  
+    if(!playerTurn)
+    {
+      houseSpin();
+    }  
 }
 
 function spinWheel()
 {
     // Ensure that spinning can't be clicked again while already running.
-    if (wheelSpinning == false) {
+    if (wheelSpinning == false && playerTurn = true) {
         // Based on the power level selected adjust the number of spins for the wheel, the more times is has
         // to rotate with the duration of the animation the quicker the wheel spins.
         
@@ -122,8 +154,15 @@ function spinWheel()
 
         // Set to true so that power can't be changed and spin button re-enabled during
         // the current animation. The user will have to reset before spinning again.
-        wheelSpinning = true;
+        houseSpin();
     }
+}
+
+function houseSpin()
+{
+  theWheel.animation.spins = 10;
+  
+  theWheel.startAnimation();
 }
 
 function displayLists()
