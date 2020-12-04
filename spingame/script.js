@@ -127,9 +127,9 @@ function alertPrize(indicatedSegment)
           alert("The House Received " + indicatedSegment.text);
       }
 
-      if(playerRequirements.includes(indicatedSegment.text))
+      if(aiRequirements.includes(indicatedSegment.text))
       {
-          playerItems.push(indicatedSegment.text)
+          aiItems.push(indicatedSegment.text)
       }
     } 
 
@@ -204,6 +204,15 @@ function displayLists()
     { 
         aiItemsList.innerHTML += "<li>" + aiItems[i] + "</li>"
     }
+  
+  if(playerItems.length > 6)
+  {
+    alert("Player Wins");
+  } 
+  else
+  {
+    alert("House Wins");
+  }  
 }
 
 function resetWheel()
