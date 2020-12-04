@@ -205,11 +205,11 @@ function displayLists()
         aiItemsList.innerHTML += "<li>" + aiItems[i] + "</li>"
     }
   
-  if(playerItems.length > 6)
+  if(playerItems.length > 2)
   {
     alert("Player Wins");
   } 
-  else if(aiItems.length > 6)
+  else if(aiItems.length > 2)
   {
     alert("House Wins");
   }  
