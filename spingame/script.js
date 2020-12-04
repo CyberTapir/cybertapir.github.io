@@ -147,7 +147,7 @@ function alertPrize(indicatedSegment)
 function spinWheel()
 {
     // Ensure that spinning can't be clicked again while already running.
-    if (wheelSpinning == false && playerTurn = true) {
+    if (wheelSpinning == false && playerTurn == true) {
         // Based on the power level selected adjust the number of spins for the wheel, the more times is has
         // to rotate with the duration of the animation the quicker the wheel spins.
         
