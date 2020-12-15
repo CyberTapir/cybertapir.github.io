@@ -75,6 +75,8 @@ namespace ToastOS
             Console.WriteLine("ToastOS");
             Console.WriteLine("Made with COSMOS User Kit");
             Console.WriteLine("Developed by Big X inc.");
+            Console.WriteLine("Find the source code at:")
+            Console.Writeline("https://github.com/ctoboe5/ctoboe5.github.io/blob/master/ToastOS/ToastOS.cs/")
         }
 
         //Calculator command 1, can calculate +, -, *, and /
