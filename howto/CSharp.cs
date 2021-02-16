@@ -1,7 +1,7 @@
 using System;
 //System to initialise C#
 
-namespace HowToCSharp //All code goes in here for C# to execute
+namespace howtocsharp //All code goes in here for C# to execute
 {
 
     class Program 
@@ -22,7 +22,7 @@ namespace HowToCSharp //All code goes in here for C# to execute
                 double widthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
             }
-        }
+        } //The closing brackets are super important, dont forget them!
 
         static double rectArea(double length, double width) //This is a method. They can be called in the main program
         //They must have  an input ^^^^ and an output using a return statement
