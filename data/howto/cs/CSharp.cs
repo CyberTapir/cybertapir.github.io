@@ -9,7 +9,7 @@ namespace howToCSharp //All code goes in here for C# to execute
 
         public static void Main(string[] args) //The main program to execute
         {
-            int[] array = new int [1, 2, 3, 4, 5, 6, 7, 8, 9]; //This is an array of numbers going from 0 to 8
+            int[] array = new int [1, 2, 3, 4, 5, 6, 7, 8, 9]; //This is an array of numbers going from 1 to 9 in positions 0 - 8
 
             string msg = "Hello"; //Saves "Hello" in a string variable called msg
 
