@@ -29,9 +29,13 @@ namespace howToCSharp //All code goes in here for C# to execute
             if (input == "rect") //If statement decleration. If the input is "rect", execute this code 
             {
                 Console.Write("Enter the Length > "); //This line prints "Enter the Length > " to the console WITHOUT a line break
+                
                 double lengthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
+
                 Console.Write("Enter the Width > "); //This line prints "Enter the Width > " to the console WITHOUT a line break
+
                 double widthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
+
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
             }
         } //The closing brackets are super important, dont forget them!
@@ -41,7 +45,9 @@ namespace howToCSharp //All code goes in here for C# to execute
         //This will return the area of a rectangle using the variables length and width
         {
             double area = length * width; //Double is a type of variable decleration
+
             Console.WriteLine(area); //This line writes the area to the console WITH a line break at the end
+            
             return area; //Returns the area
         }
     //These closing brackets are super important, dont forget them!
