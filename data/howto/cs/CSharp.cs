@@ -1,3 +1,9 @@
+//This is C#. The File Extension is .cs
+//Comments are made by double slashes for one line
+/*
+and inbetween a / and a * for multiline comments
+*/
+
 using System;
 //System to initialise C#
 
