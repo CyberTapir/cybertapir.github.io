@@ -1,7 +1,7 @@
 using System;
 //System to initialise C#
 
-namespace howtocsharp //All code goes in here for C# to execute
+namespace howToCSharp //All code goes in here for C# to execute
 {
 
     class Program 
@@ -9,16 +9,28 @@ namespace howtocsharp //All code goes in here for C# to execute
 
         public static void Main(string[] args) //The main program to execute
         {
+            int[] array = new int [1, 2, 3, 4, 5, 6, 7, 8, 9]; //This is an array of numbers going from 0 to 8
 
-            Console.Write("Enter the shape > "); //This line prints to the console WITHOUT a line break
+            string msg = "Hello"; //Saves "Hello" in a string variable called msg
+
+            char[] charmsg = msg.ToCharArray(); //This line will save Hello in a char array > H, e, l, l, o
+
+            int currentPos = Array.IndexOf(charmsg, "o"); //Finds the first value in the array with the same character
+            //Will return 4
+
+            string newMsg = String.Join("", charmsg); //Joins the char letters together, value is Hello
+
+            Console.WriteLine(array[1]); //This line will write 2 to the console as it is the 2nd value in array
+
+            Console.Write("Enter the shape > "); //This line prints "Enter the Shape > " to the console WITHOUT a line break
 
             string input = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
 
             if (input == "rect") //If statement decleration. If the input is "rect", execute this code 
             {
-                Console.Write("Enter the Length > "); //This line prints to the console WITHOUT a line break
+                Console.Write("Enter the Length > "); //This line prints "Enter the Length > " to the console WITHOUT a line break
                 double lengthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
-                Console.Write("Enter the Width > "); //This line prints to the console WITHOUT a line break
+                Console.Write("Enter the Width > "); //This line prints "Enter the Width > " to the console WITHOUT a line break
                 double widthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
             }
