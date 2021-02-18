@@ -18,6 +18,10 @@ namespace howToCSharp //All code goes in here for C# to execute
             int[] array = new int [1, 2, 3, 4, 5, 6, 7, 8, 9]; //This is an array of numbers going from 1 to 9 in positions 0 - 8
 
             string msg = "Hello"; //Saves "Hello" in a string variable called msg
+            
+            int oddNum = 7; //Saves the value 7 in an integer variable
+            
+            int evenNum = 8; //Saves the number 8 in an integer variable
 
             char[] charmsg = msg.ToCharArray(); //This line will save Hello in a char array > H, e, l, l, o
 
@@ -43,6 +47,10 @@ namespace howToCSharp //All code goes in here for C# to execute
                 double widthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
 
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
+            } else if (input == "odd/even") {
+                if (oddNum % 2 == 0){
+                    Console.WriteLine("7 is Even");
+                }
             }
         } //The closing brackets are super important, dont forget them!
 
