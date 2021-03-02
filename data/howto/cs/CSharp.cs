@@ -47,6 +47,7 @@ namespace howToCSharp //All code goes in here for C# to execute
 
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
             } else if (input == "odd/even") {
+                //This is an if statement that will check if the input is even
                 if (oddNum % 2 == 0){
                     Console.WriteLine("7 is Even");
                 }
