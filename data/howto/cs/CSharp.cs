@@ -48,8 +48,12 @@ namespace howToCSharp //All code goes in here for C# to execute
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
             } else if (input == "odd/even") {
                 //This is an if statement that will check if the input is even
-                if (oddNum % 2 == 0){
+                if (oddNum % 2 == 0){ //the % is called modulo, and will return the remainder after division
                     Console.WriteLine("7 is Even");
+                    //This if statement will not return anything as the modulo of 7 != 0
+                } else {
+                    Console.WriteLine("7 is Odd");
+                    //This will return and write as 7 is odd
                 }
             }
         } //The closing brackets are super important, dont forget them!
@@ -66,7 +70,7 @@ namespace howToCSharp //All code goes in here for C# to execute
         }
     //These closing brackets are super important, dont forget them!
     }
-}
+}//This is the last bit of the program, closing off the block of code. It is super important
 
 /*
 If you need more help, you can do a couple of things.
