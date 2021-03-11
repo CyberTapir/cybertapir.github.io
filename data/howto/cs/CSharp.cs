@@ -14,6 +14,7 @@ namespace howToCSharp //All code goes in here for C# to execute
 
         public static void Main(string[] args) //The main program to execute
         {
+
             int[] array = new int [1, 2, 3, 4, 5, 6, 7, 8, 9]; //This is an array of numbers going from 1 to 9 in positions 0 - 8
 
             string msg = "Hello"; //Saves "Hello" in a string variable called msg
@@ -37,6 +38,7 @@ namespace howToCSharp //All code goes in here for C# to execute
 
             if (input == "rect") //If statement decleration. If the input is "rect", execute this code 
             {
+
                 Console.Write("Enter the Length > "); //This line prints "Enter the Length > " to the console WITHOUT a line break
                 
                 double lengthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
@@ -46,14 +48,21 @@ namespace howToCSharp //All code goes in here for C# to execute
                 double widthInput = Console.ReadLine(); //This will save all text entered before pressing enter in the variable
 
                 rectArea(lengthInput, widthInput); //This line calls the method below with the values to find the area
+
             } else if (input == "odd/even") {
+
                 //This is an if statement that will check if the input is even
+
                 if (oddNum % 2 == 0){ //the % is called modulo, and will return the remainder after division
+
                     Console.WriteLine("7 is Even");
                     //This if statement will not return anything as the modulo of 7 != 0
+
                 } else {
+
                     Console.WriteLine("7 is Odd");
                     //This will return and write as 7 is odd
+
                 }
             }
         } //The closing brackets are super important, dont forget them!
@@ -62,11 +71,13 @@ namespace howToCSharp //All code goes in here for C# to execute
         //They must have  an input ^^^^ and an output using a return statement
         //This will return the area of a rectangle using the variables length and width
         {
+
             double area = length * width; //Double is a type of variable decleration
 
             Console.WriteLine(area); //This line writes the area to the console WITH a line break at the end
             
             return area; //Returns the area
+            
         }
     //These closing brackets are super important, dont forget them!
     }
