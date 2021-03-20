@@ -9,5 +9,6 @@ body {
     /*
     This will style all elements within the <body> tag
     */ 
-    
+    margin: 5%; /*This will increase the margin towards the edge of 
+    the viewable area*/
 }
