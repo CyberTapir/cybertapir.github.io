@@ -1,0 +1,16 @@
+{
+"companyName": "CallumBennett Dev",
+"productName": "SpacePilot",
+"productVersion": "1.7.2",
+"dataUrl": "SpacePilot Web.data.unityweb",
+"wasmCodeUrl": "SpacePilot Web.wasm.code.unityweb",
+"wasmFrameworkUrl": "SpacePilot Web.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.21f1"
+}
