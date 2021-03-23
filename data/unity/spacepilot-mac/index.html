@@ -3,9 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>Download</title>
+        <script>
+            function download(){
+                var url = 'http://example.com/dload.py';
+                var htm = '<iframe src="' + url +'" onload="downloadComplete()"></iframe>';
+                document.getElementById('frameDiv').innerHTML = htm;
+            }
+        </script>
     </head>
-    <body>
+    <body onLoad="download()">
       <a href="SpacePilot.app.zip" download></a>
+      
         
     </body>
 </html>
