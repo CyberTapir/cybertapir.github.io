@@ -1,3 +1,5 @@
+//This is Guess the number. To run it, it would need to be embedded into a html webpage
+
 function playGame() {
     //Variable Decleration
     var gamewon = false; //to exit the while loop

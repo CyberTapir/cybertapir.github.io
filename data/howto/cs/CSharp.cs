@@ -5,6 +5,7 @@ and inbetween /* and */ //for multiline comments
 
 using System;
 //System to initialise C#
+//You can import other frameworks, such as when you are using Unity Game Engine
 
 namespace howToCSharp //All code goes in here for C# to execute
 {

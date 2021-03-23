@@ -5,6 +5,9 @@ It is used to style webpages
 It can set colours, borders, spacing and more
 */
 
+/*To use CSS, you must specify what you are styling
+This could be the body, a particular heading, and you can use divs have styled areas*/
+
 body {
     /*
     This will style all elements within the <body> tag
