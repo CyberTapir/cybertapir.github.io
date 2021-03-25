@@ -22,9 +22,17 @@ namespace hangman
     static void playGame()
     {
       string[] possibleWords = {"", "", ""};
+      bool gameOver = false;
+      int word = random.Next(0, possibleWords.Length);
+      string pickedWord = possibleWords[word];
       char[] guessedLetters;
+      char[] word = pickedWord.ToCharArray();
       char[] alphabet = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
       int word = random.Next(0, possibleWords.Length);
+      for (int i = 0; i < word.Length; i++)
+      {
+        Console.Write("_");
+      }
     }
     static void instructions()
     {
