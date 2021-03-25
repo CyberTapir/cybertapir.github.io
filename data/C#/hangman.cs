@@ -3,16 +3,39 @@ namespace hangman
 {
   class Program
   {
-    //main method
-    //Ask for either instructions or play
-    
+    //Global(close to) variables
+    private readonly Random _random = new Random();
+    static void main(string[], args)
+    {
+      Console.WriteLine("Hangman");
+      Console.WriteLine("Play (0), or Instructions (1)");
+      string input = Console.ReadLine();
+      int intInput = Convert.ToInt32(input);
+      if (intInput == 0)
+      {
+        playGame();  
+      } else if (intInput == 1)
+      {
+        instructions();
+      }
+    }
+    static void playGame()
+    {
+      string[] possibleWords = {"", "", ""};
+      char[] guessedLetters;
+      char[] alphabet = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+      int word = random.Next(0, possibleWords.Length);
+    }
+    static void instructions()
+    {
+      Console.Clear();
+    }
     //Instructions method
     //Output instructions
     //Console.readline to return to main
   
     //gameplay method
     //Words
-    string[] possibleWords = {"", "", ""};
     //pick a random word
     //save the word as a char string
     //Write out the _s according to the length of the word
@@ -23,5 +46,8 @@ namespace hangman
         //Rewrite console, replacing the correct letter
       //letter is not in word
         //rewrite console, updating the lives left
+    //Gameover
+      //User loses
+      //User wins
   }
 }
