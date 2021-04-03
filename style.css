@@ -1,0 +1,23 @@
+body {
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    font-size: small;
+}
+h1, h2 {
+    color: #cc6600;
+    border-bottom: thin dotted #888888;
+}
+h1 {
+    font-family: "Emblema One", sans-serif;
+    font-size: 220%;
+}
+h2 {
+    font-weight: normal;
+    font-size: 130%;
+}
+h3 {
+    font-weight: lighter;
+    font-size: 115%;
+}
+blockquote {
+    font-style: italic;
+}
