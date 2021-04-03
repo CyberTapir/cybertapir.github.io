@@ -70,8 +70,11 @@ public class PlayerBehaviour : MonoBehaviour //This is the class
             {
                 PlayerPrefs.SetFloat("HighScore", score);
             }
-            //Setting the text for the game over popup
+
+            //Pausing the game once it has finished
             Time.timeScale = 0;
+
+            //Setting the text for the gameover popup
             highScoreText.text = "Your high score is: " + PlayerPrefs.GetFloat("HighScore");
             scoreText.text = "Your score was: " + score;
 
