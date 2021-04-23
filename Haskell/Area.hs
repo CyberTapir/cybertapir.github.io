@@ -9,4 +9,5 @@ areaSquare :: Integer -> Integer
 areaSquare len = len * len
 
 -- calculate area of a rectangle with only integer lengths
-areaRectangle :: 
+areaRectangle :: Double -> Double -> Double
+areaRectangle height width = height * width
