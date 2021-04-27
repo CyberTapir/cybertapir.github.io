@@ -24,4 +24,4 @@ demoFuncTwo num1 num2 = num1 + num2
 
 --the second line is where the action happens
 --demoFunc inpDouble = inpDouble * 2
---In function demoFunc, with input named inpDouble, Double inpDouble
+--In function demoFunc, with input named inpDouble, Double the value of inpDouble
