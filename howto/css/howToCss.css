@@ -1,0 +1,33 @@
+ /*
+This is CSS
+the file extension is .css
+It is used to style webpages
+It can set colours, borders, spacing and more
+*/
+
+/*To use CSS, you must specify what you are styling
+This could be the body, a particular heading, and you can use divs have styled areas*/
+
+body {
+    /*
+    This will style all elements within the <body> tag
+    */ 
+
+    margin: 5%; /*This will increase the margin towards the edge of 
+    the viewable area by 5% of the total area of the webpage*/
+
+    font-family: Verdana; /*The font family can be customised, 
+    usually for different font weights and for h1, h2 etc.
+
+	the structure for each argument is as follows
+	whatYouAreChanging: ValueToChangeTo;
+	What you are changing could be anything about the style
+	the value you are changing it to  
+    */
+}
+/*
+Say you wanted to specifically style everything in a <h3> tag
+You can do that, as shown below*/
+h3 /*You can list as many elements you want to style here*/{
+
+}

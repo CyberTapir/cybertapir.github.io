@@ -1,6 +1,7 @@
-//Java. Extension is .jar
+ //Java. Extension is .jar
 
-/*to compile run 
+/*
+to compile run 
 javac *name*.java
 
 to run, execute
@@ -23,12 +24,12 @@ public class Person {
         num--; //Takes one away from num
 
         //Variable types
-        int age = 28;
-        char grade = 'A';
-        boolean late = false;
-        byte b = 20;
-        long num1 = 1234567;
-        short no = 10;
-        float k = (float)12.5;
-        double pi = 3.14159;
+        int age = 28; //Integer
+        char grade = 'A'; //Character
+        boolean late = false; //Boolean value
+        byte b = 20; //Byte
+        long num1 = 1234567; //Long number
+        short no = 10; //Short number
+        float k = (float)12.5; //Floating point number
+        double pi = 3.14159; //Floating point number
 }
