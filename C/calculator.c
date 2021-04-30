@@ -2,6 +2,9 @@
 int main(){
     //Get input stored in a variable
     printf("Enter your equation with a space between the operator and numbers > ");
+    int num1;
+    int num2;
+    scanf("");
     string dataInput = input;
     //store seperated floats in variables
     inpNum1 = dataInput[0];
