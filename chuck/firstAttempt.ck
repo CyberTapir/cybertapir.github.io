@@ -6,3 +6,9 @@ SinOsc s => dac;
 
 // allow 2 seconds to pass
 2::second => now;
+
+//infinite while loop increasing the frequency
+while( true ) {
+    100::ms => now;
+    Std.rand2f(30.0, 1000.0) => s.freq;
+}
