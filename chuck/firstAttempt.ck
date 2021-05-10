@@ -5,7 +5,7 @@ SinOsc s => dac;
 //dac is a d/a converter
 
 // allow 2 seconds to pass
-2::second => now;
+2::second => now; //440hz
 
 //infinite while loop increasing the frequency
 while( true ) {
