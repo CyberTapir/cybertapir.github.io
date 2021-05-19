@@ -1,17 +1,94 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>
             Home
         </title>
-        <script>
-            //Script to make it cool
+        <script type="text/javascript"> 
+            //Update the time
+            function display_c(){
+                var refresh = 1000; // Refresh rate in milli seconds
+                mytime=setTimeout('display_ct()',refresh)
+            }    
+            //Update the date
+            function display_ct() {
+                var x = new Date()
+                document.getElementById('ct').innerHTML = x;
+                display_c();
+            }
+            //Searchbar functionality
+            function search() {
+                var Blah = document.getElementById("Blah").value;
+                location.replace("https://www.google.com/search?q=" + Blah + "");
+            }
         </script>
         <style>
             /*Style to make it look nice*/
+            body {
+                font-family: sans-serif;
+                background-image: url("../../../Desktop/cb\ mac\ sticker.png");
+                width: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow: hidden;
+                position: relative;
+                margin: 2.5%;
+            }
+            .timeDate {
+                text-align: center;
+                align-self: center;
+                background-color: white;
+                padding-left: 10px;
+                padding-top: 2.5px;
+                padding-bottom: 2.5px;
+                padding-right: 10px;
+                border-radius: 10px;
+                background-repeat: no-repeat;
+                width: 40%;
+                padding: 10px;
+            }
+            .searchBar {
+                text-align: center;
+                align-self: center;
+                background-color: whitesmoke;
+                padding-left: 10px;
+                padding-top: 2.5px;
+                padding-bottom: 2.5px;
+                padding-right: 10px;
+                border-radius: 10px;
+                background-size: 5px auto;
+                background-repeat: no-repeat;
+                width: 40%;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+            }
+            .searchBarElement {
+                height: 40px;
+                top:50%;
+                align-self: center;
+                border-radius: 5px;
+            }
+            .noun_Magnifying {
+                border-radius: 50%;
+                height: 40px;
+                top: 50%;
+                
+            }
         </style>
     </head>
-    <body>
-        <!--Actual elements to fill the page-->
+    <body onload=display_ct();>
+        <div class="timeDate">
+            <h3>
+                <!--Display date and time in box-->
+                <span id='ct'></span>
+            </h3>
+        </div>
+        <br/>
+        <div class="searchBar">
+            <input type="text" class="searchBarElement" id="Blah" placeholder="Search..." required><button onclick="search()"><img src="./../../../Downloads/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search"></button>
+        </div>
     </body>
 </html>
