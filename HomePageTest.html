@@ -85,6 +85,34 @@
                 background-color: white;
                 border-radius: 10px;
             }
+            .toDoAdd {
+                background-color: white;
+                align-self: center;
+                text-align: center;
+                border-radius: 10px;
+                width: 40%;
+                padding: 10px;
+                border-radius: 10px;
+                background-size: 5px auto;
+                background-repeat: no-repeat;
+                top:50%;
+                align-self: center;
+                border-radius: 5px;
+                margin-right: 2%;
+            }
+            .addToDo  {
+                height: 40px;
+                top:50%;
+                width: 70%;
+                align-self: center;
+                border-radius: 5px;
+                margin-right: 2%;
+            }
+            .addToDoButton {
+                height: 40px;
+                top: 50%;
+                margin-left: 2%;
+            }
         </style>
     </head>
     <body onload=display_ct();>
@@ -99,5 +127,14 @@
             <input type="text" class="searchBarElement" id="Blah" placeholder="Search..." required><button onclick="search()"><img src="./../../../Downloads/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search"></button>
         </div>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="toDoAdd">
+            <input type="text" class="addToDo" placeholder="To Do" required><button onclick="addItem()" class="addToDoButton">Add to list</button>
+        </div>
     </body>
 </html>
