@@ -6,6 +6,9 @@
             Home
         </title>
         <script type="text/javascript"> 
+            //Public Variables
+            var toDoItems = [];
+            
             //Update the time
             function display_c(){
                 var refresh = 1000; // Refresh rate in milli seconds
@@ -22,16 +25,27 @@
                 var Blah = document.getElementById("Blah").value;
                 location.replace("https://www.google.com/search?q=" + Blah + "");
             }
+            //Add item to localStorage and display in list form
+            function addItem() {
+                //get input
+                var enteredItem = document.getElementById("inputText").value;
+                console.log(enteredItem);
+                //add to array
+                toDoItems.push(enteredItem);
+                console.log(toDoItems);
+                //Display in html element 
+                document.getElementById("toDoList").innerHTML = toDoItems;
+            }
         </script>
         <style>
             
             /*Style to make it look nice*/
             body {
                 font-family: sans-serif;
-                background-image: url("../../../Desktop/cb\ mac\ sticker.png");
+                background-image: url("./animation\ background\ 3.png");
                 width: 100%;
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: fill;
                 overflow: hidden;
                 position: relative;
                 margin: 2.5%;
@@ -97,7 +111,7 @@
                 background-repeat: no-repeat;
                 top:50%;
                 align-self: center;
-                border-radius: 5px;
+                border-radius: 10px;
                 margin-right: 2%;
             }
             .addToDo  {
@@ -111,7 +125,13 @@
             .addToDoButton {
                 height: 40px;
                 top: 50%;
-                margin-left: 2%;
+                margin-left: 1%;
+            }
+            .toDoList {
+                background-color: white;
+                border-radius: 5px;
+                width: 40%;
+                padding: 5px;
             }
         </style>
     </head>
@@ -124,7 +144,7 @@
         </div>
         <br/>
         <div class="searchBar">
-            <input type="text" class="searchBarElement" id="Blah" placeholder="Search..." required><button onclick="search()"><img src="./../../../Downloads/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search"></button>
+            <input type="text" class="searchBarElement" id="Blah" placeholder="Search..." required><button onclick="search()"><img src="./noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search"></button>
         </div>
         <br/>
         <br/>
@@ -134,7 +154,13 @@
         <br/>
         <br/>
         <div class="toDoAdd">
-            <input type="text" class="addToDo" placeholder="To Do" required><button onclick="addItem()" class="addToDoButton">Add to list</button>
+            <input type="text" class="addToDo" placeholder="To Do" id="inputText" required><button onclick="addItem()" class="addToDoButton">Add to list</button>
+        </div>
+        <br/>
+        <div class="toDoList">
+            <ul class="toDo" id="toDoList">
+
+            </ul>            
         </div>
     </body>
 </html>
