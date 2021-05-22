@@ -9,6 +9,12 @@
             //Public Variables
             var toDoItems = [];
             
+            //onStartup
+            function onStartup() {
+                display_ct()
+
+            }
+
             //Update the time
             function display_c(){
                 var refresh = 1000; // Refresh rate in milli seconds
@@ -157,7 +163,7 @@
             }
         </style>
     </head>
-    <body onload=display_ct();>
+    <body onload=onStartup();>
         <div class="timeDate">
             <h3>
                 <!--Display date and time in box-->
@@ -177,12 +183,13 @@
         <br/>
         <div class="toDoAdd">
             <input type="text" class="addToDo" placeholder="To Do" id="inputText" required><button onclick="addItem()" class="addToDoButton">Add to list</button>
-        </div>
-        <br/>
-        <div class="toDoList">
             <ul id="ulElement">
 
             </ul>
+        </div>
+        <br/>
+        <div class="toDoList">
+            
         </div>
     </body>
 </html>
