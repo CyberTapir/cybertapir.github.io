@@ -34,7 +34,7 @@
                 toDoItems.push(enteredItem);
                 console.log(toDoItems);
                 //Display in html element 
-                document.getElementById("toDoList").innerHTML = '<ul>' + toDoItems.map(function (item) {return '<li>' + toDoItems + '</li>';}).join('') + '</ul>';
+                document.getElementById("toDoList").innerHTML = '<ul> \n' + toDoItems.map(function (item) {return '<li>' + toDoItems + '</li>\n';}).join('') + '</ul>';
             }
         </script>
         <style>
