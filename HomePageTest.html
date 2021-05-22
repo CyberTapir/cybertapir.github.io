@@ -33,9 +33,31 @@
                 //add to array
                 toDoItems.push(enteredItem);
                 console.log(toDoItems);
-                //Display in html element 
-                document.getElementById("toDoList").innerHTML = '<ul> \n' + toDoItems.map(function (item) {return '<li>' + toDoItems + '</li>\n';}).join('') + '</ul>';
+                document.getElementById('ulElement').appendChild(makeUL(toDoItems));
             }
+            //Update element on screen
+            function makeUL(array) {
+                // Create the list element:
+                var list = document.createElement('ul');
+
+                for (var i = 0; i < array.length; i++) {
+                    // Create the list item:
+                    var item = document.createElement('li');
+
+                    // Set its contents:
+                    item.appendChild(document.createTextNode(array[i]));
+
+                    // Add it to the list:
+                    list.appendChild(item);
+                }
+
+                // Finally, return the constructed list:
+                return list;
+                
+            }
+
+            // Add the contents of options[0] to #foo:
+            document.getElementById('foo').appendChild(makeUL(options[0]));
         </script>
         <style>
             
@@ -158,7 +180,9 @@
         </div>
         <br/>
         <div class="toDoList">
-            
+            <ul id="ulElement">
+
+            </ul>
         </div>
     </body>
 </html>
