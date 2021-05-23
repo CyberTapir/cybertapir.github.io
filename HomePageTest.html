@@ -8,11 +8,14 @@
         <script type="text/javascript"> 
             //Public Variables
             var toDoItems = [];
+            var localStorageNum = 0;
+            var localToDo = JSON.parse{localStorage.getItem("toDo")};
             
             //onStartup
             function onStartup() {
                 display_ct()
-                
+                //Display to do stuff
+                document.getElementById('ulElement').appendChild(makeUL(localToDo));
             }
 
             //Update the time
@@ -38,6 +41,7 @@
                 console.log(enteredItem);
                 //add to array
                 toDoItems.push(enteredItem);
+                window.localStorage.setItem(toDo, JSON.stringify(toDoItems));
                 console.log(toDoItems);
                 document.getElementById('ulElement').appendChild(makeUL(toDoItems));
             }
