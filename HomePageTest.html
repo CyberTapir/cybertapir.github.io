@@ -28,7 +28,7 @@
             //Searchbar functionality
             function search() {
                 var Blah = document.getElementById("Blah").value;
-                location.replace("https://www.google.com/search?q=" + Blah + "");
+                window.open("https://www.google.com/search?q=" + Blah + "");
             }
             //Add item to localStorage and display in list form
             function addItem() {
@@ -162,6 +162,8 @@
             }
             ul {
                 list-style-type: disc;
+                background-color: white;
+                
             }
         </style>
     </head>
