@@ -1,3 +1,7 @@
+<!--
+    Get images for Quick Links
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,10 +10,7 @@
             Home
         </title>
         <script type="text/javascript"> 
-            //Public Variables
             var toDoItems = [];
-            
-            //onStartup
             function onStartup() {
                 display_ct()
             }
@@ -62,6 +63,9 @@
                 return list;
                 
             }
+            function linkRedirect(link){
+                window.open(link);
+            }
         </script>
         <style>
             
@@ -77,6 +81,7 @@
                 margin: 2.5%;
             }
             .timeDate {
+                width: 40%;
                 text-align: center;
                 align-self: center;
                 background-color: white;
@@ -86,39 +91,47 @@
                 padding-right: 10px;
                 border-radius: 10px;
                 background-repeat: no-repeat;
-                width: 40%;
                 padding: 10px;
             }
             .searchBar {
+                width: 40.6%;
                 text-align: center;
                 align-self: center;
-                background-color: whitesmoke;
-                padding-left: 10px;
+                background-color: white;
+                /*padding-left: 10px;*/
                 padding-top: 2.5px;
                 padding-bottom: 2.5px;
                 padding-right: 10px;
                 border-radius: 10px;
                 background-size: 5px auto;
                 background-repeat: no-repeat;
-                width: 40%;
-                padding: 10px;
+                /*padding: 10px;*/
                 display: flex;
                 justify-content: center;
                 position: absolute;
             }
             .searchBarElement {
-                height: 40px;
-                top:50%;
-                width: 70%;
+                padding-left: 2.5%;
+                top: 70%;
+                width: 600px;
                 align-self: center;
-                border-radius: 5px;
+                border-radius: 10px;
+                height: 50px;
                 margin-right: 2%;
+                border: none;
+            }
+            #searchButton  {
+                background-color: white;
+                border: none;
+                /*height: 100%;*/
             }
             .noun_Magnifying {
-                border-radius: 50%;
+                /*border-radius: 50%;*/
                 height: 40px;
                 top: 50%;
-                margin-left: 2%;
+                margin-left: 1%;
+                border: none;
+                background-color: white;
             }
             /*.list {
                 width: 40%;
@@ -164,20 +177,35 @@
                 background-color: white;
             }*/
             #quickLinks {
+                margin-top: 0.35%;
                 background-color: white;
                 align-self: center;
                 /*text-align: center;*/
                 border-radius: 10px;
-                width: 40%;
+                width: 39.6%;
                 padding: 10px;
                 border-radius: 10px;
                 background-size: 5px auto;
                 background-repeat: no-repeat;
-                top:50%;
+                /*top:50%;*/
                 align-self: center;
                 border-radius: 10px;
                 margin-right: 2%;
                 padding-left: 1%;
+            }
+            #redirect {
+                border:none;
+                background-color: white;
+            }
+            #links {
+                width: 100%;
+                text-align: center;
+                align-self: center;
+                padding: 2.5%;
+            }
+            .title {
+                text-align: center;
+                align-self: center;
             }
         </style>
     </head>
@@ -190,9 +218,11 @@
         </div>
         <br/>
         <div class="searchBar">
-            <input type="text" class="searchBarElement" id="Blah" placeholder="Search Google..." required><button onclick="search()"><img src="./noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search"></button>
+            <input type="text" class="searchBarElement" id="Blah" placeholder="Search Google..." required>
+            <button onclick="search()" id="searchButton">
+                <img src="./noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search">
+            </button>
         </div>
-        <br/>
         <br/>
         <br/>
         <br/>
@@ -207,17 +237,42 @@
             </ul>
         </div>-->
         <div id="quickLinks">
-            <h3>
+            <h3 class="title">
                 Quick Links
             </h3>
-            <!--
-                Google
-                YouTube
-                FaceBook
-                Twitter
-                Insta
-                
-            -->
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/google.com')" id="redirect">
+                    <img src="" alt="Google">
+                </button>
+                <button onclick="linkRedirect('https:\/\/microsoft.com')" id="redirect">
+                    <img src="" alt="Microsoft">
+                </button>
+                <button onclick="linkRedirect('https:\/\/icloud.com')" id="redirect">
+                    <img src="" alt="iCloud">
+                </button>
+            </div>
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/gmail.com')" id="redirect">
+                    <img src="" alt="Gmail">
+                </button>
+                <button onclick="linkRedirect('https:\/\/outlook.live.com')" id="redirect">
+                    <img src="" alt="Outlook">
+                </button>
+                <button onclick="linkRedirect('https:\/\/youtube.com')" id="redirect">
+                    <img src="" alt="YouTube">
+                </button>
+            </div>
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/facebook.com')" id="redirect">
+                    <img src="" alt="FaceBook">
+                </button>
+                <button onclick="linkRedirect('https:\/\/twitter.com')" id="redirect">
+                    <img src="" alt="Twitter">
+                </button>
+                <button onclick="linkRedirect('https:\/\/instagram.com')" id="redirect">
+                    <img src="" alt="Instagram">
+                </button>
+            </div>
         </div>
     </body>
 </html>
