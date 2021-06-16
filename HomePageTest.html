@@ -72,7 +72,7 @@
             /*Style to make it look nice*/
             body {
                 font-family: sans-serif;
-                background-image: url("./animation\ background\ 3.png");
+                background-image: url("./images/animation\ background\ 3.png");
                 width: 100%;
                 background-repeat: no-repeat;
                 background-size: fill;
@@ -207,6 +207,11 @@
                 text-align: center;
                 align-self: center;
             }
+            .centerImage {
+                align-items: center;
+                text-align: center;
+                align-content: center;
+            }
         </style>
     </head>
     <body onload=onStartup();>
@@ -220,7 +225,7 @@
         <div class="searchBar">
             <input type="text" class="searchBarElement" id="Blah" placeholder="Search Google..." required>
             <button onclick="search()" id="searchButton">
-                <img src="./noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search">
+                <img src="./images/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search">
             </button>
         </div>
         <br/>
@@ -242,35 +247,35 @@
             </h3>
             <div id="links">
                 <button onclick="linkRedirect('https:\/\/google.com')" id="redirect">
-                    <img src="" alt="Google">
+                    <img src="./images/google.png" width="45px" alt="Google">
                 </button>
-                <button onclick="linkRedirect('https:\/\/microsoft.com')" id="redirect">
-                    <img src="" alt="Microsoft">
+                <button onclick="linkRedirect('https:\/\/microsoft.com')" id="redirect" class="centerImage">
+                    <img src="./images/microsoft.png" width="55px" alt="Microsoft">
                 </button>
                 <button onclick="linkRedirect('https:\/\/icloud.com')" id="redirect">
-                    <img src="" alt="iCloud">
+                    <img src="./images/icloud.png" width="45px" alt="iCloud">
                 </button>
             </div>
             <div id="links">
                 <button onclick="linkRedirect('https:\/\/gmail.com')" id="redirect">
-                    <img src="" alt="Gmail">
+                    <img src="./images/gmail.png" width="55px" alt="Gmail">
                 </button>
-                <button onclick="linkRedirect('https:\/\/outlook.live.com')" id="redirect">
-                    <img src="" alt="Outlook">
+                <button onclick="linkRedirect('https:\/\/outlook.live.com')" id="redirect" class="centerImage">
+                    <img src="./images/outlook.png" width="60px" alt="Outlook">
                 </button>
                 <button onclick="linkRedirect('https:\/\/youtube.com')" id="redirect">
-                    <img src="" alt="YouTube">
+                    <img src="./images/youtube.png" width="45px" alt="YouTube">
                 </button>
             </div>
             <div id="links">
                 <button onclick="linkRedirect('https:\/\/facebook.com')" id="redirect">
-                    <img src="" alt="FaceBook">
+                    <img src="./images/facebook.png"  width="45px" alt="FaceBook">
                 </button>
-                <button onclick="linkRedirect('https:\/\/twitter.com')" id="redirect">
-                    <img src="" alt="Twitter">
+                <button onclick="linkRedirect('https:\/\/twitter.com')" id="redirect" class="centerImage">
+                    <img src="./images/twitter.png" width="45px" alt="Twitter">
                 </button>
                 <button onclick="linkRedirect('https:\/\/instagram.com')" id="redirect">
-                    <img src="" alt="Instagram">
+                    <img src="./images/instagram.jpeg" width="45px" alt="Instagram">
                 </button>
             </div>
         </div>
