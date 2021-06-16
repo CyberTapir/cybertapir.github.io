@@ -1,6 +1,4 @@
 import random
-import time
-import readline
 
 board = [["1","2","3"],
          ["4","5","6"],
@@ -14,13 +12,14 @@ def initialiseBoard():
 
 def getPos(y,x):
     global board
+
     return board[y][x]
 
 def setPos(y,x,value):
     global board
+
     board[y][x]= value
 
-#Displays the board
 def displayBoard():
     global board
 
@@ -53,22 +52,22 @@ def checkForWin():
 
 running = True
 while running:
-    wouldYouLikeToPlaylevel123or4 = input("Would you like to play level 1, 2, 3 or 4? (1/2/3/4)")
-    if wouldYouLikeToPlaylevel123or4 == "" or wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2") or wouldYouLikeToPlaylevel123or4.startswith("3") or wouldYouLikeToPlaylevel123or4.startswith("4"):
+    level = input("Would you like to play level 1, 2, 3 or 4? (1/2/3/4)")
+    if level == "" or level.startswith("1") or level.startswith("2") or level.startswith("3") or level.startswith("4"):
         gameWon = False
 
         #Clear the board
         initialiseBoard()
-        print("You are going to play as Noughts, so the computer will move first")
+        print("You are going to play as O, so the computer will move first")
 
         #Place the computer's first piece
-        if wouldYouLikeToPlaylevel123or4.startswith("1"):
+        if level.startswith("1"):
             setPos(random.randint(0,2),random.randint(0,2),"X")
-        if wouldYouLikeToPlaylevel123or4.startswith("2"):
+        if level.startswith("2"):
             setPos(1,1,"X")
-        if wouldYouLikeToPlaylevel123or4.startswith("3"):
+        if level.startswith("3"):
             setPos(1,1,"X")
-        if wouldYouLikeToPlaylevel123or4.startswith("4"):
+        if level.startswith("4"):
             setPos(1,1,"X")
             setPos(2,2,"O")
             setPos(0,0,"X")
@@ -80,8 +79,9 @@ while running:
             displayBoard()
 
             #Get the players input
-            playerChoice = input("Where would you like to place a piece?")
+            playerChoice = input("Where would you like to place a piece? ")
             personplayHappened = False 
+            computerplayHappened = False
             for y in range(0,3):
                 for x in range(0,3):
 
@@ -91,31 +91,28 @@ while running:
                         #Confirm that something has happened this turn, and set the board position to an O
                         personplayHappened = True
                         setPos(y,x,"O")
-                        
+
                         #If there has been a win since that piece was placed, the player has won, so tell them that
                         if checkForWin():
                             print("You won! Well Done!")
-                            time.sleep(0.5)
                             displayBoard()
-                            playAgain = input("Would you like to play again?")
-                            if playAgain == "Yes":
-                                gameWon = False
-                                running = True
-                            if playAgain == "No":
-                                gameWon = True
-                                running  = False
+                            gameWon = True
                         
                         #Otherwise, we need to see what the computer will do
-                        if wouldYouLikeToPlaylevel123or4.startswith("1") or wouldYouLikeToPlaylevel123or4.startswith("2"):
-                            computerplayHappened = False
+                        if level.startswith("1") or level.startswith("2"):
                             nextPosX = random.randint(0,2)
                             nextPosY = random.randint(0,2)
-                            setPos(nextPosX, nextPosY, "X")
-                            computerplayHappened = True
-                        #Computer play for the harder levels
+                            if checkForWin():
+                                print("Computer won! Better luck next time!")
+                                displayBoard()
+                                gameWon = True
+                        if getPos(nextPosY, nextPosX) != "O" and getPos(nextPosY, nextPosX) != "X":
+                            setPos(nextPosY, nextPosX, "X")
+                            
                         else:
                             y = 0
                             computerplayHappened = False
+                            
                             nextPosX = -1
                             nextPosY = -1
 
@@ -131,21 +128,21 @@ while running:
                                 if CountX == 2 and SpaceColumn < 3:
                                     setPos(y,SpaceColumn,"X")
                                     computerplayHappened = True
-                                if computerplayHappened == False:
-                                    for X in range (0,3):  #Finding out if it has two "X"s in a column to then take the last square if there isn't already a nought
-                                        CountY = 0
-                                        SpaceRow = 5
-                                        for y in range (0,3):
-                                            if getPos(y,X) == "X":
-                                                CountY = CountY + 1
-                                            else:
-                                                if getPos(y,X) != 'O':
-                                                    SpaceRow = y
-                                        if CountY == 2 and SpaceRow < 3:
-                                            setPos(SpaceRow,X,"X")
-                                            computerplayHappened = True
+                            if computerplayHappened == False:
+                                for X in range (0,3):  #Finding out if it has two "X"s in a column to then take the last square if there isn't already a nought
+                                    CountY = 0
+                                    SpaceRow = 5
+                                    for y in range (0,3):
+                                        if getPos(y,X) == "X":
+                                            CountY = CountY + 1
+                                        else:
+                                            if getPos(y,X) != 'O':
+                                                SpaceRow = y
+                                    if CountY == 2 and SpaceRow < 3:
+                                        setPos(SpaceRow,X,"X")
+                                        computerplayHappened = True
     
-                            if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
+                            if computerplayHappened == False and level.startswith("4"):
                                 for y in range (0,3):  #Blocking the Nought from collecting 3 in a row
                                     CountNoughtRow = 0
                                     SpaceColumnP = 5
@@ -161,8 +158,8 @@ while running:
                                         print("Moved to block in row")
                                         setPos(y,SpaceColumnP,"X")
                                         computerplayHappened = True
-                                 
-                            if computerplayHappened == False and wouldYouLikeToPlaylevel123or4.startswith("4"):
+                                
+                            if computerplayHappened == False and level.startswith("4"):
                                 for x in range (0,3):  #Blocking the Nought from collecting 3 in a column. Still a work in progress...
                                     CountNoughtColumn = 0
                                     SpaceRowP = 5
@@ -179,36 +176,26 @@ while running:
                                         setPos(SpaceRowP,x,"X")
                                         computerplayHappened = True
 
-                            #If none of the above are true, the AI will move randomly
                             if computerplayHappened == False:
-                                 print("AI moved randomly")
-                                 nextPosX = random.randint(0,2)
-                                 nextPosY = random.randint(0,2)
-                                 setPos(nextPosX,nextPosY, "X")
- 
-                            #Generate new random numbers until the computer has selected an empty square
-                            while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
+                                print("AI moved randomly")
                                 nextPosX = random.randint(0,2)
                                 nextPosY = random.randint(0,2)
 
+                            #Generate new random numbers until the computer has selected an empty square
+                                while getPos(nextPosY,nextPosX) == "X" or getPos(nextPosY,nextPosX) == "O":
+                                    nextPosX = random.randint(0,2)
+                                    nextPosY = random.randint(0,2)
+
                             #Place an X in the square that the computer has chosen
-                            if nextPosX == nextPosY and nextPosX == -1:
+                            if computerplayHappened and getPos(nextPosY, nextPosX) != "O" and getPos(nextPosY, nextPosX)!= "X":
                                 setPos(nextPosY,nextPosX,"X")
-                                displayBoard()
- 
+
                             #If there has been a win after that piece was placed, the computer has won, so say that
                             if checkForWin():
                                 print("Computer won! Better luck next time!")
-                                time.sleep(0.5)
                                 displayBoard()
-                                playAgain = input("Would you like to play again?")
-                                if playAgain == "Yes":
-                                    gameWon = False
-                                    running = True
-                                if playAgain == "No":
-                                    gameWon = True
-                                    running  = False
-
+                                gameWon = True
+                        
             #If nothing happened this turn, it means the player chose an invalid space, so tell them that
             if not personplayHappened:
                 print("Please choose an unoccupied space")
@@ -218,19 +205,11 @@ while running:
                 vacantSquare = False
                 for y in range(0,3):
                     for x in range(0,3):
-                        #This line is a bit complicated, but, basically, if there is any unfilled square, this will set vacantSquare to True. If you've got any questions about this, I can explain it to you in more detail.
+                        #Itf there is any unfilled square, this will set vacantSquare to True.
                         vacantSquare = vacantSquare or (getPos(y,x) != "X" and getPos(y,x) != "O")
 
                 #If there are no blank spaces, and the game hasn't been won, then there has been a draw.
                 if not vacantSquare and not gameWon:
                     gameWon = True
                     print("It was a draw!")
-                    time.sleep(0.5)
                     displayBoard()
-                    playAgain = input("Would you like to play again?")
-                    if playAgain == "Yes":
-                        gameWon = False
-                        running = True
-                    if playAgain == "No":
-                        gameWon = True
-                        running  = False
