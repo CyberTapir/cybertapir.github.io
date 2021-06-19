@@ -100,7 +100,7 @@ void interface()
            "~~~~~~~~~~~~~~~~~~~~~~~"
            "~~~~~~~~~~~~~~~~~~~~~~~~"
            "~~~~~~~~~~\n");
-    printf("\n\n\n\t\t\t\t\t\t\t\"
+    printf("\n\n\n\t\t\t\t\t\t\t\""
            "t\t\t\t       "
            "@Sushant_Gaurav\n\n\n\n"
            "\n\n\n\t");
@@ -162,8 +162,8 @@ void createtodo()
     while (1) {
  
         printf("\nWant to add new ToDo ??"
-               + " Press 'y' for Yes and 'n' "
-               + " for No  :-)\n\t\t");
+               " Press 'y' for Yes and 'n' "
+               " for No  :-)\n\t\t");
         fflush(stdin);
  
         // Input from user
@@ -236,12 +236,12 @@ void deletetodo()
  
     todo *del, *temp;
     printf("\nEnter the ToDo's number"
-           + " that you want to remove.\n\t\t");
+           " that you want to remove.\n\t\t");
  
     // Checking empty condition
     if (start == NULL)
         printf("\n\nThere is no ToDo"
-               + " for today :-)\n\n\n");
+               " for today :-)\n\n\n");
     else {
         scanf("%d", &x);
  
