@@ -1,5 +1,5 @@
 <!--
-    Get images for Quick Links
+    Edit images for Quick Links
 -->
 
 <!DOCTYPE html>
@@ -28,7 +28,11 @@
             //Searchbar functionality
             function search() {
                 var Blah = document.getElementById("Blah").value;
-                window.open("https://www.google.com/search?q=" + Blah + "");
+                if (Blah[5]==":" && Blah[6] == "/" && Blah[7]== "/") {
+                    window.open(blah);
+                } else {
+                    window.open("https://www.google.com/search?q=" + Blah + "");
+                }
             }
             //Add item to localStorage and display in list form
             function addItem() {
@@ -72,7 +76,7 @@
             /*Style to make it look nice*/
             body {
                 font-family: sans-serif;
-                background-image: url("./images/animation\ background\ 3.png");
+                background-image: url("./images/animation background 3.png");
                 width: 100%;
                 background-repeat: no-repeat;
                 background-size: fill;
