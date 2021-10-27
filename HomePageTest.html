@@ -29,7 +29,7 @@
             function search() {
                 var Blah = document.getElementById("Blah").value;
                 if (Blah[5]==":" && Blah[6] == "/" && Blah[7]== "/") {
-                    window.open(blah);
+                    window.open(Blah);
                 } else {
                     window.open("https://www.google.com/search?q=" + Blah + "");
                 }
@@ -229,7 +229,7 @@
         </div>
         <br/>
         <div class="searchBar">
-            <input type="text" class="searchBarElement" id="Blah" placeholder="Search Google..." required>
+            <input type="text" id="Blah" class="searchBarElement" placeholder="Search Google..." required>
             <button onclick="search()" id="searchButton">
                 <img src="./images/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search">
             </button>
