@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--
     Edit images for Quick Links
 -->
@@ -286,4 +287,294 @@
             </div>
         </div>
     </body>
+=======
+<!--
+    Edit images for Quick Links
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Home
+        </title>
+        <script type="text/javascript"> 
+            var toDoItems = [];
+            function onStartup() {
+                display_ct()
+            }
+            //Update the time
+            function display_c(){
+                var refresh = 1000; // Refresh rate in milli seconds
+                mytime=setTimeout('display_ct()',refresh)
+            }    
+            //Update the date
+            function display_ct() {
+                var x = new Date()
+                document.getElementById('ct').innerHTML = x;
+                display_c();
+            }
+            //Searchbar functionality
+            function search() {
+                var Blah = document.getElementById("Blah").value;
+                if (Blah[5]==":" && Blah[6] == "/" && Blah[7]== "/") {
+                    window.open(Blah);
+                } else {
+                    window.open("https://www.google.com/search?q=" + Blah + "");
+                }
+            }
+            //Add item to localStorage and display in list form
+            function addItem() {
+                //get input
+                var enteredItem = document.getElementById("inputText").value;
+                console.log(enteredItem);
+                //add to array
+                toDoItems.push(enteredItem);
+                console.log(toDoItems);
+                document.getElementById('ulElement').appendChild(makeUL(toDoItems));
+            }
+            //Update element on screen
+            function makeUL(array) {
+                //Clear the element
+                document.getElementById('ulElement').innerHTML = '';
+
+                // Create the list element:
+                var list = document.createElement('ul');
+
+                for (var i = 0; i < array.length; i++) {
+                    // Create the list item:
+                    var item = document.createElement('li');
+
+                    // Set its contents:
+                    item.appendChild(document.createTextNode(array[i]));
+
+                    // Add it to the list:
+                    list.appendChild(item);
+                }
+
+                // Finally, return the constructed list:
+                return list;
+                
+            }
+            function linkRedirect(link){
+                window.open(link);
+            }
+        </script>
+        <style>
+            
+            /*Style to make it look nice*/
+            body {
+                font-family: sans-serif;
+                background-image: url("./images/animation background 3.png");
+                width: 100%;
+                background-repeat: no-repeat;
+                background-size: fill;
+                overflow: hidden;
+                position: relative;
+                margin: 2.5%;
+            }
+            .timeDate {
+                width: 40%;
+                text-align: center;
+                align-self: center;
+                background-color: white;
+                padding-left: 10px;
+                padding-top: 2.5px;
+                padding-bottom: 2.5px;
+                padding-right: 10px;
+                border-radius: 10px;
+                background-repeat: no-repeat;
+                padding: 10px;
+            }
+            .searchBar {
+                width: 40.6%;
+                text-align: center;
+                align-self: center;
+                background-color: white;
+                /*padding-left: 10px;*/
+                padding-top: 2.5px;
+                padding-bottom: 2.5px;
+                padding-right: 10px;
+                border-radius: 10px;
+                background-size: 5px auto;
+                background-repeat: no-repeat;
+                /*padding: 10px;*/
+                display: flex;
+                justify-content: center;
+                position: absolute;
+            }
+            .searchBarElement {
+                padding-left: 2.5%;
+                top: 70%;
+                width: 600px;
+                align-self: center;
+                border-radius: 10px;
+                height: 50px;
+                margin-right: 2%;
+                border: none;
+            }
+            #searchButton  {
+                background-color: white;
+                border: none;
+                /*height: 100%;*/
+            }
+            .noun_Magnifying {
+                /*border-radius: 50%;*/
+                height: 40px;
+                top: 50%;
+                margin-left: 1%;
+                border: none;
+                background-color: white;
+            }
+            /*.list {
+                width: 40%;
+                background-color: white;
+                border-radius: 10px;
+            }
+            .toDoAdd {
+                background-color: white;
+                align-self: center;
+                text-align: center;
+                border-radius: 10px;
+                width: 40%;
+                padding: 10px;
+                border-radius: 10px;
+                background-size: 5px auto;
+                background-repeat: no-repeat;
+                top:50%;
+                align-self: center;
+                border-radius: 10px;
+                margin-right: 2%;
+            }
+            .addToDo  {
+                height: 40px;
+                top:50%;
+                width: 70%;
+                align-self: center;
+                border-radius: 5px;
+                margin-right: 2%;
+            }
+            .addToDoButton {
+                height: 40px;
+                top: 50%;
+                margin-left: 1%;
+            }
+            .toDoList {
+                background-color: white;
+                border-radius: 5px;
+                width: 40%;
+                padding: 5px;
+            }
+            ul {
+                list-style-type: disc;
+                background-color: white;
+            }*/
+            #quickLinks {
+                margin-top: 0.35%;
+                background-color: white;
+                align-self: center;
+                /*text-align: center;*/
+                border-radius: 10px;
+                width: 39.6%;
+                padding: 10px;
+                border-radius: 10px;
+                background-size: 5px auto;
+                background-repeat: no-repeat;
+                /*top:50%;*/
+                align-self: center;
+                border-radius: 10px;
+                margin-right: 2%;
+                padding-left: 1%;
+            }
+            #redirect {
+                /*border: black;*/
+                background-color: white;
+                width: 70px;
+                height: 70px;
+            }
+            #links {
+                width: 100%;
+                text-align: center;
+                align-self: center;
+                padding: 2.5%;
+            }
+            .title {
+                text-align: center;
+                align-self: center;
+            }
+            .centerImage {
+                align-items: center;
+                text-align: center;
+                align-content: center;
+            }
+        </style>
+    </head>
+    <body onload=onStartup();>
+        <div class="timeDate">
+            <h3>
+                <!--Display date and time in box-->
+                <span id='ct'></span>
+            </h3>
+        </div>
+        <br/>
+        <div class="searchBar">
+            <input type="text" id="Blah" class="searchBarElement" placeholder="Search Google..." required>
+            <button onclick="search()" id="searchButton">
+                <img src="./images/noun_Magnifying Glass_1924730.png" class="noun_Magnifying" alt="Search">
+            </button>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <!--<div class="toDoAdd">
+            <input type="text" class="addToDo" placeholder="Add a To Do Item..." id="inputText" required><button onclick="addItem()" class="addToDoButton">Add to list</button>
+        </div>
+        <br/>
+        <div class="toDoList">
+            <ul id="ulElement">
+
+            </ul>
+        </div>-->
+        <div id="quickLinks">
+            <h3 class="title">
+                Quick Links
+            </h3>
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/google.com')" id="redirect">
+                    <img src="./images/google.png" width="45px" alt="Google">
+                </button>
+                <button onclick="linkRedirect('https:\/\/microsoft.com')" id="redirect" class="centerImage">
+                    <img src="./images/microsoft.png" width="55px" alt="Microsoft">
+                </button>
+                <button onclick="linkRedirect('https:\/\/icloud.com')" id="redirect">
+                    <img src="./images/icloud.png" width="45px" alt="iCloud">
+                </button>
+            </div>
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/gmail.com')" id="redirect">
+                    <img src="./images/gmail.png" width="55px" alt="Gmail">
+                </button>
+                <button onclick="linkRedirect('https:\/\/outlook.live.com')" id="redirect" class="centerImage">
+                    <img src="./images/outlook.png" width="60px" alt="Outlook">
+                </button>
+                <button onclick="linkRedirect('https:\/\/youtube.com')" id="redirect">
+                    <img src="./images/youtube.png" width="45px" alt="YouTube">
+                </button>
+            </div>
+            <div id="links">
+                <button onclick="linkRedirect('https:\/\/facebook.com')" id="redirect">
+                    <img src="./images/facebook.png"  width="45px" alt="FaceBook">
+                </button>
+                <button onclick="linkRedirect('https:\/\/twitter.com')" id="redirect" class="centerImage">
+                    <img src="./images/twitter.png" width="45px" alt="Twitter">
+                </button>
+                <button onclick="linkRedirect('https:\/\/instagram.com')" id="redirect">
+                    <img src="./images/instagram.jpeg" width="45px" alt="Instagram">
+                </button>
+            </div>
+        </div>
+    </body>
+>>>>>>> Stashed changes
 </html>
