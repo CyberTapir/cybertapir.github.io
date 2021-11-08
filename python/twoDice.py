@@ -2,7 +2,9 @@ import random
 times = int(input("How many times would you like to roll two 6-sided dice? "))
 two = 0;three = 0;four = 0;five = 0;six = 0;seven = 0;eight = 0;nine = 0;ten = 0;eleven = 0;twelve = 0
 for i in range(times):
-    output = random.randint(2,12)
+    o1 = random.randint(1,6)
+    o2 = random.randint(1,6)
+    output = o1 + o2
     print(output)
     match output:
         case 2:
@@ -27,7 +29,7 @@ for i in range(times):
             eleven += 1
         case 12:
             twelve += 1
-print("Condensesd Results")
+print("Condensed Results")
 print("2: " + str(two))
 print("3: " + str(three))
 print("4: " + str(four))
