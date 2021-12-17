@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cards": "^1.1.0",
+    "syncprompt": "^2.0.0"
+  }
+}

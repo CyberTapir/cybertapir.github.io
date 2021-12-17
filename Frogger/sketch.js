@@ -5,7 +5,6 @@ let grid = 50;
 let lives = 10;
 let points = 100;
 let name;
-let midPoints = false;
 document.getElementById("lives").innerHTML = "5";
 name = prompt("Enter your name to begin");
 
@@ -78,9 +77,9 @@ function setup(){
 
 function endGame(won){
     if (won == 1){
-        alert("You Win! Your final score was " + points + " points.");
+        alert("You Win! Your final score was " + points*10 + " points.");
     } else {
-        alert("Game Over! Your final score was 0 points.")
+        alert("Game Over! Your final score was " + points/1000 + " points.")
     }
     location.reload();
 }
@@ -146,24 +145,18 @@ function draw(){
 function keyPressed() {
     if(keyCode === UP_ARROW){
         frog.move(0, -1);
-        console.log(frog.x +" - "+ frog.y);
+        console.log(frog.x +" "+ frog.y);
         console.log(points)
         if (frog.y == 0) {
             frog.update();
             frog.show();
             points = points + 500;
             endGame(1);
-        }
+        } 
         if (frog.y == 250) {
-            if (midPoints == false) {
-                frog.update();
-                frog.show();
-                points = points + 250;
-                midPoints = true;
-            } else {
-                frog.update();
-                frog.show();
-            }
+            frog.update();
+            frog.show();
+            points = points + 250;
         }
     } else if(keyCode === DOWN_ARROW){
         frog.move(0, 1);
