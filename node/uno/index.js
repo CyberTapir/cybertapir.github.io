@@ -4,9 +4,15 @@ deck.shuffleAll()
 const hand = deck.draw(7);
 const playerHand = [];
 const won = false;
+//Starting card
+const startCard = deck.draw(1);
+substituteCards(startCard);
+printCards(playerHand);
+playerHand = [];
 //while (!won){
     substituteCards(hand);
     printCards(playerHand);
+    
     //Gameplay
     //Write out the last played card.
     //Play a card
@@ -15,7 +21,7 @@ const won = false;
 //}
 function printCards(inputHand) {
     console.log("You have the following cards: ");
-    for (i=0;i<7;i++){
+    for (i=0;i<inputHand.length;i++){
         switch (inputHand[i]){
             case "r0":
                 console.log("Red Zero (0)");
@@ -175,12 +181,13 @@ function printCards(inputHand) {
                 break;
         }
     }
+    return;
 }
-function substituteCards() {
-    for (var i = 0;i<7;i++){
-        switch(hand[i].rank.longName){
+function substituteCards(var inputHand) {
+    for (var i = 0;i<inputHand.length;i++){
+        switch(inputHand[i].rank.longName){
             case "Ace":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     case "diamonds": //Yellow 1
                         playerHand[i] = "y1";
                         break;
@@ -196,7 +203,7 @@ function substituteCards() {
                 }
                 break;
             case "Two":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y2";
@@ -213,7 +220,7 @@ function substituteCards() {
                 }
                 break;
             case "Three":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y3";
@@ -230,7 +237,7 @@ function substituteCards() {
                 }
                 break;
             case "Four":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y4";
@@ -247,7 +254,7 @@ function substituteCards() {
                 }
                 break;
             case "Five":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y5";
@@ -264,7 +271,7 @@ function substituteCards() {
                 }
                 break;
             case "Six":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y6";
@@ -281,7 +288,7 @@ function substituteCards() {
                 }
                 break;
             case "Seven":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y7";
@@ -298,7 +305,7 @@ function substituteCards() {
                 }
                 break;
             case "Eight":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y8";
@@ -315,7 +322,7 @@ function substituteCards() {
                 }
                 break;
             case "Nine":
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y9";
@@ -332,7 +339,7 @@ function substituteCards() {
                 }
                 break;
             case "Ten": //Zero
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "y0";
@@ -349,7 +356,7 @@ function substituteCards() {
                 }
                 break;
             case "Jack": //Reverse
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "yr";
@@ -366,7 +373,7 @@ function substituteCards() {
                 }
                 break;
             case "Queen": //Draw 2
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "yd";
@@ -383,7 +390,7 @@ function substituteCards() {
                 }
                 break;
             case "King": //Skip
-                switch(hand[i].suit.name){
+                switch(inputHand[i].suit.name){
                     //Card colour
                     case "diamonds":
                         playerHand[i] = "ys";
