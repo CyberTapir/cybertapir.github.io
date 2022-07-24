@@ -3,7 +3,7 @@ import socket
 
 #variables
 sendToIp = "" #IP address goes here
-sendToPort = #Port number goes here
+sendToPort = 1000 #Port number goes here
 message = b"Hello UTP Server!"
 
 #Print statements

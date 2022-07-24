@@ -9,7 +9,6 @@ f.close()
 lines = read_data.split('\n')
 
 #Split a string
-
 str.split(" ") #Use the char(s) you want to split
 
 #random number 
