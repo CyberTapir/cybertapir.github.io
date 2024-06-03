@@ -1,3 +1,8 @@
-# CyberTapir
+# callumbennett-dev.github.io
 
-A repository of assorted projects I've worked on. I'm in the process of properly separating them into individual repositories and having this just be the website
+ _____       _ _                ______                       _   _             _            <br/>
+/  __ \     | | |               | ___ \                     | | | |           | |           <br/>
+| /  \/ __ _| | |_   _ _ __ ___ | |_/ / ___ _ __  _ __   ___| |_| |_ ______ __| | _____   __<br/>
+| |    / _` | | | | | | '_ ` _ \| ___ \/ _ \ '_ \| '_ \ / _ \ __| __|______/ _` |/ _ \ \ / /<br/>
+| \__/\ (_| | | | |_| | | | | | | |_/ /  __/ | | | | | |  __/ |_| |_      | (_| |  __/\ V / <br/>
+ \____/\__,_|_|_|\__,_|_| |_| |_\____/ \___|_| |_|_| |_|\___|\__|\__|      \__,_|\___| \_/  <br/>                                                                                                                          
